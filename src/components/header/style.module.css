@@ -1,0 +1,10 @@
+
+.logo {
+    width: 4rem;
+    height: 4rem;
+}
+
+.header {
+    background-color: var(--lightgrey);
+    padding: 0.5rem;
+}
