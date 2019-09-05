@@ -8,3 +8,60 @@
     background-color: var(--lightgrey);
     padding: 0.5rem;
 }
+
+.navBarBrand {
+    display: flex;
+}
+
+.navBarBurger {
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+    padding-top: 0.75rem;
+    margin-left: auto;
+    display: none;
+}
+
+.navBarBurgerItem {
+    width: 2rem;
+    height: 0.25rem;
+    background-color: var(--darkgrey);
+    margin: 0.375rem auto;
+    display: block;
+}
+
+.navBar {
+    display: flex;
+    align-items: center;
+}
+
+.navBarMenu {
+    margin-left: 2rem;
+}
+
+.navBarMenu {
+    text-align: center;
+}
+
+.navBarItem {
+    cursor: pointer;
+    padding: 0.5rem 0.5rem;
+}
+
+@media screen and (max-width: 1023px){
+    .navBar{
+        display: block;
+    }
+
+    .navBarBurger {
+        display: block;
+    }
+
+    .navBarItem {
+        display: block;
+    }
+
+    .navBarMenu {
+        margin-left: 0;
+    }
+}
