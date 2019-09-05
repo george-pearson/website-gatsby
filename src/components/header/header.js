@@ -11,9 +11,9 @@ export default class Header extends React.Component {
           <div className={style.navBarBrand}>
             <img src={logo} class={style.logo} alt="logo" />
             <div className={style.navBarBurger}>
-              <span className={style.navBarBurgerItem} />
-              <span className={style.navBarBurgerItem} />
-              <span className={style.navBarBurgerItem} />
+              <div className={style.navBarBurgerItem} />
+              <div className={style.navBarBurgerItem} />
+              <div className={style.navBarBurgerItem} />
             </div>
           </div>
           <div className={style.navBarMenu}>
