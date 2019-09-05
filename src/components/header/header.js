@@ -16,12 +16,13 @@ export default class Header extends React.Component {
 
   toggleNavIcon = () => {
     this.setState({
-      navIconActive: !this.state.navIconActive
+      navIconActive: !this.state.navIconActive,
     });
   }
 
   render() {
     const navIcon = this.state.navIconActive ? faTimes : faBars;
+    const navBarMenuClass = this.state.navIconActive ? style.navBarMenuActive : style.navBarMenu;
     return (
       <header className={style.header}>
         <nav className={style.navBar}>
@@ -31,7 +32,7 @@ export default class Header extends React.Component {
               <FontAwesomeIcon className={style.navIcon} icon={navIcon} size="2x"/>
             </div>
           </div>
-          <div className={style.navBarMenu}>
+          <div className={navBarMenuClass}>
             <Link to="/" className={style.navBarItem}>Home</Link>
             <Link to="/" className={style.navBarItem}>About</Link>
             <Link to="/" className={style.navBarItem}>Photos</Link>

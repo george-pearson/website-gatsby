@@ -41,7 +41,7 @@
     align-items: center;
 }
 
-.navBarMenu {
+.navBarMenu, .navBarMenuActive {
     margin-left: 2rem;
     text-align: center;
 }
@@ -73,6 +73,10 @@
     }
 
     .navBarMenu {
+        display: none;
+    }
+
+    .navBarMenuActive {
         margin-left: 0;
     }
 }
