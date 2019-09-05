@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
-import * as style from './style.module.css';
+import * as style from './style.module.scss';
 import { Link } from 'gatsby';
 
 export default class Header extends React.Component {
