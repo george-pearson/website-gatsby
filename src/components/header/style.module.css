@@ -1,3 +1,9 @@
+:root {
+    --skyblue: #00c1c1;
+    --darkgrey: #696969;
+    --grey: #E0E0E0;
+    --lightgrey: #ebebe0;
+}
 
 .logo {
     width: 4rem;
@@ -18,10 +24,10 @@
     display: none;
     padding: 1rem 1.25rem;
     margin-left: auto;
+}
 
-    &:hover {
-        background: var(--grey);
-    }
+.navBarBurger:hover {
+    background: var(--grey);
 }
 
 .navBarBurgerItem {
@@ -51,10 +57,10 @@
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
+}
 
-    &:hover {
-        background: var(--grey);
-    }
+.navBarItem:hover {
+    background: var(--grey);
 }
 
 @media screen and (max-width: 1023px){
