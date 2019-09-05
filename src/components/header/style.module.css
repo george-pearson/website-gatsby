@@ -19,22 +19,21 @@
     display: flex;
 }
 
-.navBarBurger {
+.navIconDiv {
     cursor: pointer;
     display: none;
-    padding: 1rem 1.25rem;
+    width: 4.5rem;
+    height: 4.5rem;
     margin-left: auto;
+    color: var(--darkgrey);
 }
 
-.navBarBurger:hover {
+.navIconDiv:hover {
     background: var(--grey);
 }
 
-.navBarBurgerItem {
-    width: 2rem;
-    height: 0.25rem;
-    background-color: var(--darkgrey);
-    margin: 0.375rem auto;
+.navIcon{
+    margin: auto;
 }
 
 .navBar {
@@ -44,9 +43,6 @@
 
 .navBarMenu {
     margin-left: 2rem;
-}
-
-.navBarMenu {
     text-align: center;
 }
 
@@ -68,8 +64,8 @@
         display: block;
     }
 
-    .navBarBurger {
-        display: block;
+    .navIconDiv {
+        display: flex;
     }
 
     .navBarItem {
