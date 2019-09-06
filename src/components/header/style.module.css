@@ -9,31 +9,11 @@
     width: 4rem;
     height: 4rem;
     padding: 0.25rem;
+    display: block;
 }
 
 .header {
     background-color: var(--lightgrey);
-}
-
-.navBarBrand {
-    display: flex;
-}
-
-.navIconDiv {
-    cursor: pointer;
-    display: none;
-    width: 4.5rem;
-    height: 4.5rem;
-    margin-left: auto;
-    color: var(--darkgrey);
-}
-
-.navIconDiv:hover {
-    background: var(--grey);
-}
-
-.navIcon{
-    margin: auto;
 }
 
 .navBar {
@@ -41,17 +21,16 @@
     align-items: center;
 }
 
-.navBarMenu, .navBarMenuActive {
-    margin-left: 2rem;
+.navBarMenu {
+    margin-left: auto;
     text-align: center;
 }
 
 .navBarItem {
     font-size: 1.2rem;
-    padding: 1.5625rem 1rem;
+    padding: 1.594rem 1rem;
     color: var(--skyblue);
     text-decoration: none;
-    display: inline-block;
     cursor: pointer;
 }
 
@@ -59,24 +38,32 @@
     background: var(--grey);
 }
 
+.navButton {
+    display: none;
+    background: none;
+    border: none;
+    width: 4.5rem;
+    height: 4.5rem;
+	padding: 0;
+	cursor: pointer;
+    margin-left: auto;
+    color: var(--darkgrey);
+}
+ 
+.navButton:hover {
+    background: var(--grey);
+}
+ 
+.navButtonIcon {
+    margin: auto;
+}
+
 @media screen and (max-width: 1023px){
-    .navBar{
-        display: block;
-    }
-
-    .navIconDiv {
-        display: flex;
-    }
-
-    .navBarItem {
-        display: block;
-    }
-
     .navBarMenu {
         display: none;
     }
 
-    .navBarMenuActive {
-        margin-left: 0;
+    .navButton {
+        display: flex;
     }
 }
