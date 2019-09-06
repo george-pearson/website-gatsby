@@ -3,11 +3,29 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import Sidebar from "../sidebar/sidebar";
 import Backdrop from "../backdrop/backdrop";
+import * as style from './style.module.css';
+
+let prevScrollpos = window.pageYOffset;
 
 export default class Layout extends React.Component {
 
   state = {
-    sidebarOpen: false
+    sidebarOpen: false,
+    showHeader: true
+  };
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll, true);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+  
+  handleScroll = () => {
+    var currentScrollPos = window.pageYOffset;
+    this.setState({ showHeader: prevScrollpos > currentScrollPos });
+    prevScrollpos = currentScrollPos;
   };
 
   navButtonClickHandler = () => {
@@ -28,10 +46,10 @@ export default class Layout extends React.Component {
     }
     return (
         <div>
-          <Header navButtonClickHandler={this.navButtonClickHandler} />
+          <Header show={this.state.showHeader} navButtonClickHandler={this.navButtonClickHandler} />
           <Sidebar show={this.state.sidebarOpen} />
           {backdrop}
-          <main>{children}</main>
+          <main className={style.main}>{children}</main>
           <Footer />
         </div>
     )

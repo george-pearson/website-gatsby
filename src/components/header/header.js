@@ -6,11 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 export default class Header extends React.Component {
-
+  
   render() {
-    const { navButtonClickHandler } = this.props;
+    const { navButtonClickHandler, show } = this.props;
+    const headerClass = show ? style.header : style.headerClosed;
     return (
-      <header className={style.header}>
+      <header className={headerClass}>
         <nav className={style.navBar}>
           <Link to="/">
             <img src={logo} className={style.logo} alt="logo" />

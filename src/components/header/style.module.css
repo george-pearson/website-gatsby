@@ -12,8 +12,16 @@
     display: block;
 }
 
-.header {
+.header, .headerClosed {
     background-color: var(--lightgrey);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: top 0.3s;
+}
+
+.headerClosed {
+    top: -5rem;
 }
 
 .navBar {
