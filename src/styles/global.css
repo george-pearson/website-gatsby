@@ -12,3 +12,17 @@ p {
     margin: 0;
     padding: 0;
 }
+
+.blueLink {
+    color: var(--skyblue);
+    text-decoration: none;
+    background-image: linear-gradient(to top, var(--skyblue), var(--skyblue) 50%, transparent 50%, transparent);
+    background-position: 0% 0%;
+    background-size: 100% 200%;
+    transition-duration: 0.5s;
+}
+
+.blueLink:hover {
+    color: rgba(255,255,255,255);
+    background-position: 0 100%;
+}

@@ -11,7 +11,7 @@ export default class Intro extends React.Component {
         <img className={style.logoBrackets} src={logoBrackets} alt="logoBrackets"/>
         <p className={style.introText}>
           This is a blog about software development, science, and other musings
-          by <Link className={style.blueLink} to="/about">George Pearson</Link>
+          by <Link className="blueLink" to="/about">George Pearson</Link>
         </p>
       </section>
     )
