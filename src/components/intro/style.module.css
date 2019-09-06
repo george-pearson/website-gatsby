@@ -1,0 +1,14 @@
+.logoBrackets {
+    max-width: 500px;
+    max-height: 320px;
+    width:100%;
+    height: 100%;
+    display: flex;
+    display: block;
+    margin: 1rem auto;
+}
+
+.introText {
+    color: var(--darkgrey);
+    text-align: center;
+}
