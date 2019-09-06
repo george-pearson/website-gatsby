@@ -34,6 +34,7 @@
     color: var(--skyblue);
     text-decoration: none;
     cursor: pointer;
+    transition-duration: 0.5s;
 }
 
 .navBarItem:hover {
@@ -50,6 +51,7 @@
 	cursor: pointer;
     margin-left: auto;
     color: var(--darkgrey);
+    transition-duration: 0.5s;
 }
  
 .navButton:hover {
