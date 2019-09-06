@@ -1,6 +1,6 @@
 import React from "react";
 import * as style from './style.module.css';
-import logo from "./logo.svg";
+import logo from "../../../static/logo.svg";
 import { Link } from 'gatsby';
 
 export default class Sidebar extends React.Component {

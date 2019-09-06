@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+import logo from "../../../static/logo.svg";
 import * as style from "./style.module.css";
 import { Link } from "gatsby";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
