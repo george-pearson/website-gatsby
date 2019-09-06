@@ -8,13 +8,14 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 export default class Header extends React.Component {
 
   render() {
+    const { navButtonClickHandler } = this.props;
     return (
       <header className={style.header}>
         <nav className={style.navBar}>
           <Link to="/">
             <img src={logo} className={style.logo} alt="logo" />
           </Link>
-          <button className={style.navButton} onClick={this.toggleNavIcon}>
+          <button className={style.navButton} onClick={navButtonClickHandler}>
             <FontAwesomeIcon className={style.navButtonIcon} icon={faBars} size="2x"/>
           </button>
           <div className={style.navBarMenu}>

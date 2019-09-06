@@ -24,6 +24,7 @@
 .navBarMenu {
     margin-left: auto;
     text-align: center;
+    display: none;
 }
 
 .navBarItem {
@@ -39,7 +40,7 @@
 }
 
 .navButton {
-    display: none;
+    display: flex;
     background: none;
     border: none;
     width: 4.5rem;
@@ -58,12 +59,12 @@
     margin: auto;
 }
 
-@media screen and (max-width: 1023px){
+@media (min-width: 1023px){
     .navBarMenu {
-        display: none;
+        display: flex;
     }
 
     .navButton {
-        display: flex;
+        display: none;
     }
 }

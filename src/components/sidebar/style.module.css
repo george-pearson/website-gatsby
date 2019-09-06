@@ -1,21 +1,22 @@
-.sidebar, .sidebarActive {
+.sidebar, .sidebarOpen {
     height: 100%;
     background-color: var(--darkgrey);
-    box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
+    box-shadow: 1px 0px 7px rgba(0,0,0,0.5);
     width: 70%;
     max-width: 15rem;
     position: fixed;
     top: 0;
     left: 0;
     overflow-x: hidden;
-    transition: 0.5s;
     z-index: 200;
     display: flex;
     flex-direction: column;
+    transform: translateX(-110%);
+    transition: transform 0.3s ease-out;
 }
 
-.sidebarActive {
-    width: 15rem;
+.sidebarOpen {
+    transform: translateX(0);
 }
 
 .sidebarItem {
@@ -28,4 +29,10 @@
 
 .sidebarItem:hover {
     background-color: var(--grey);
+}
+
+@media(min-width: 1023px){
+    .sidebarOpen {
+        transform: translateX(-110%);
+    }
 }
