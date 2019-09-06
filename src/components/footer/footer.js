@@ -10,18 +10,18 @@ export default class Footer extends React.Component {
     return (
       <footer className={style.footer}>
         <div className={style.socialIcons}>
-        <Link to="/">
-          <FontAwesomeIcon icon={faGithubAlt} className={style.socialIcon} size="3x"/>
-        </Link>
-        <Link to="/">
-          <FontAwesomeIcon icon={faLinkedinIn} className={style.socialIcon} size="3x"/>
-        </Link>
-        <Link to="/">
-          <FontAwesomeIcon icon={faTwitter} className={style.socialIcon} size="3x"/>
-        </Link>
-        <Link to="/">
-          <FontAwesomeIcon icon={faEnvelope} className={style.socialIcon} size="3x"/>
-        </Link>
+          <Link className={style.socialIconLink} to="/">
+            <FontAwesomeIcon icon={faGithubAlt} className={style.socialIcon} size="3x"/>
+          </Link>
+          <Link className={style.socialIconLink} to="/">
+            <FontAwesomeIcon icon={faLinkedinIn} className={style.socialIcon} size="3x"/>
+          </Link>
+          <Link className={style.socialIconLink} to="/">
+            <FontAwesomeIcon icon={faTwitter} className={style.socialIcon} size="3x"/>
+          </Link>
+          <Link className={style.socialIconLink} to="/">
+            <FontAwesomeIcon icon={faEnvelope} className={style.socialIcon} size="3x"/>
+          </Link>
         </div>
         <p>&copy; George Pearson {(new Date()).getFullYear()}</p>
       </footer>

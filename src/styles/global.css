@@ -4,3 +4,8 @@ body, html {
     height: 100%;
     font-family: 'Alegreya Sans SC', sans-serif;
 }
+
+p {
+    margin: 0;
+    padding: 0;
+}
