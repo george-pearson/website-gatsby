@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
+import Sidebar from "../sidebar/sidebar";
+import Backdrop from "../backdrop/backdrop";
 
 export default class Layout extends React.Component {
   render() {
@@ -8,6 +10,8 @@ export default class Layout extends React.Component {
     return (
         <div>
           <Header />
+          <Sidebar />
+          <Backdrop />
           <main>{children}</main>
           <Footer />
         </div>
