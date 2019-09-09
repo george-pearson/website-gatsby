@@ -8,9 +8,9 @@ body, html {
 }
 
 p {
-    line-height: 1.5;
     margin: 0;
     padding: 0;
+    line-height: 1.5;
 }
 
 .blueLink {
@@ -23,6 +23,6 @@ p {
 }
 
 .blueLink:hover {
-    color: rgba(255,255,255,255);
+    color: var(--white);
     background-position: 0 100%;
 }

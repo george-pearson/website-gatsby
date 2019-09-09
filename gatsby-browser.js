@@ -1,2 +1,2 @@
-import "./src/styles/global.css";
+import "./src/styles/base.css";
 import "./src/styles/vars.css";
