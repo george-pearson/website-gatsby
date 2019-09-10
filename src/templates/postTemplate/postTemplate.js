@@ -1,8 +1,8 @@
 import React from "react";
-import Layout from "../components/layout/layout";
+import Layout from "../../components/layout/layout";
 import { graphql } from "gatsby";
 
-export default class BlogPostTemplate extends React.Component {
+export default class PostTemplate extends React.Component {
 
   render() {
     const {data} = this.props;
