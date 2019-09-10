@@ -5,13 +5,12 @@ import Sidebar from "../sidebar/sidebar";
 import Backdrop from "../backdrop/backdrop";
 import * as style from './style.module.css';
 
-let prevScrollpos = window.pageYOffset;
-
 export default class Layout extends React.Component {
 
   state = {
     sidebarOpen: false,
-    showHeader: true
+    showHeader: true,
+    prevScrollPos: window.pageYOffset
   };
 
   componentDidMount() {
@@ -24,8 +23,12 @@ export default class Layout extends React.Component {
   
   handleScroll = () => {
     var currentScrollPos = window.pageYOffset;
-    this.setState({ showHeader: prevScrollpos > currentScrollPos });
-    prevScrollpos = currentScrollPos;
+    this.setState((prevState) => {
+      return { 
+        showHeader: prevState.prevScrollPos > currentScrollPos,
+        prevScrollPos: currentScrollPos
+      }
+    });
   };
 
   navButtonClickHandler = () => {
