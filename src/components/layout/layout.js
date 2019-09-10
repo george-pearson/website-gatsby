@@ -15,7 +15,7 @@ export default class Layout extends React.Component {
   };
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll, true);
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
