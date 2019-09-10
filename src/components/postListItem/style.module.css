@@ -1,0 +1,29 @@
+.postListItem {
+    padding: 0 0.5rem;
+}
+
+.postListItem:hover {
+    background: var(--lightgrey);
+    transition-duration: 0.5s;
+}
+
+.postLink {
+    display: block;
+    text-decoration: none;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--skyblue);
+}
+
+.postTitle {
+    margin: 0.2rem 0;
+    font-weight: 900;
+}
+
+.postMeta {
+    font-style: italic;
+}
+
+.postSubtitle {
+    color: var(--darkgrey);
+}
