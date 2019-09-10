@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../../components/layout/layout";
+import PostHeader from "../../components/postHeader/postHeader";
 import { graphql } from "gatsby";
 
 export default class PostTemplate extends React.Component {
@@ -9,10 +10,7 @@ export default class PostTemplate extends React.Component {
     const post = data.markdownRemark;
     return (
       <Layout>
-        <div>
-          <h1>{post.frontmatter.title}</h1>
-          <div>{post.frontmatter.date}</div>
-        </div>
+        <PostHeader post={post} />
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
       </Layout>
     )

@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from "../../components/layout/layout";
 import Intro from "../../components/intro/intro";
-import PostListItem from "../../components/postListItem/postListItem";
 import Paginator from "../../components/paginator/paginator";
+import PostList from "../../components/postList/postList";
 import { graphql } from "gatsby";
 
 export default class PostListTemplate extends React.Component {
@@ -15,9 +15,7 @@ export default class PostListTemplate extends React.Component {
         {currentPage === 1 && (
           <Intro />
         )}
-        {posts.map(
-            (post) => <PostListItem key={post.id} post={post} />
-        )}
+        <PostList posts={posts} />
         <Paginator currentPage={currentPage} numPages={numPages}/>
       </Layout>
     )
