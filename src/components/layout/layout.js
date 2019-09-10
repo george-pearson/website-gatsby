@@ -25,7 +25,7 @@ export default class Layout extends React.Component {
     var currentScrollPos = window.pageYOffset;
     this.setState((prevState) => {
       return { 
-        showHeader: prevState.prevScrollPos > currentScrollPos,
+        showHeader: prevState.prevScrollPos >= currentScrollPos,
         prevScrollPos: currentScrollPos
       }
     });
