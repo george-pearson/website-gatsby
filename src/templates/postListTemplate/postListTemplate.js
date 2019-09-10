@@ -12,9 +12,7 @@ export default class PostListTemplate extends React.Component {
     const { currentPage, numPages } = this.props.pageContext;
     return (
       <Layout>
-        {currentPage === 1 && (
-          <Intro />
-        )}
+        <Intro />
         <PostList posts={posts} />
         <Paginator currentPage={currentPage} numPages={numPages}/>
       </Layout>
