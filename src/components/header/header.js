@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../../static/logo.svg";
+import Logo from "../../../static/logo.inline.svg";
 import * as style from "./style.module.css";
 import { Link } from "gatsby";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,7 +14,7 @@ export default class Header extends React.Component {
       <header className={headerClass}>
         <nav className={style.navBar}>
           <Link to="/">
-            <img src={logo} className={style.logo} alt="logo" />
+            <Logo className={style.logo} />
           </Link>
           <button className={style.navButton} onClick={navButtonClickHandler}>
             <FontAwesomeIcon className={style.navButtonIcon} icon={faBars} size="2x"/>

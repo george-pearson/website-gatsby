@@ -16,5 +16,13 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+          rule: {
+            include: /\.inline\.svg$/
+          }
+      }
+    }
   ],
 }
