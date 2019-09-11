@@ -8,7 +8,7 @@ import { graphql } from "gatsby";
 export default class PostListTemplate extends React.Component {
   render() {
     const { data } = this.props;
-    const posts = data.allMarkdownRemark.edges.map(edge => edge.node);
+    const posts = data.allMdx.edges.map(edge => edge.node);
     const { currentPage, numPages } = this.props.pageContext;
     return (
       <Layout>
@@ -21,8 +21,8 @@ export default class PostListTemplate extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query blogPageQuery($skip: Int!, $limit: Int!) {
-    allMarkdownRemark(
+  query postListQuery($skip: Int!, $limit: Int!) {
+    allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
