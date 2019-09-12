@@ -19,9 +19,9 @@ export default class LogoDrawself extends React.Component {
   }
 
   createAnimations() {
-    const logoDrawSelf = document.querySelector(`.${style.logoDrawself}`);
-    const lines = Array.from(logoDrawSelf.querySelectorAll(".line"));
-    const shade = Array.from(logoDrawSelf.querySelectorAll(".shade"));
+    const svg = document.querySelector(`.${style.logoDrawself}`);
+    const lines = Array.from(svg.querySelectorAll(".line"));
+    const shade = Array.from(svg.querySelectorAll(".shade"));
     const paths = [...lines, ...shade];
     return paths.map(function(path){
       const pathLength = path.getTotalLength();
@@ -39,8 +39,10 @@ export default class LogoDrawself extends React.Component {
       animation.path.style.fillOpacity = "0";
       animation.path.getBoundingClientRect();
     });
+
     // Triggering a reflow so we animate from first path
     this.animations[0].path.getBoundingClientRect();
+    
     // Run line animations
     let begin = 0;
     this.animations.forEach(function(animation) {
