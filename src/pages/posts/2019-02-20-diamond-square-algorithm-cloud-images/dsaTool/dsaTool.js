@@ -50,7 +50,7 @@ export default class DSATool extends React.Component {
 
   runDSA(N){
     // Initialise the array with random numbers at its corners
-    const arr = this.create2Darray(N, N);
+    const arr = this.create2Darray(N, N, 0);
     arr[0][0] = 2*Math.random()-1;
     arr[0][N-1] = 2*Math.random()-1;
     arr[N-1][0] = 2*Math.random()-1;
@@ -134,17 +134,18 @@ export default class DSATool extends React.Component {
     }
   }
 
-  create2Darray(w,h){
-		const arr = []
-		for(let ix = 0; ix < w; ix++){
-			arr[ix] = [];
-		}
-		for(let iix = 0; iix < w; iix++){
-			for(let y = 0; y < h; y++){
-				arr[iix][y] = 0;
-			}
-		}
-		return arr;
+  // Creates a 2D array, initialised to value
+  create2Darray(w, h, value){
+    const arr = []
+    for(let x = 0; x < w; x++){
+      arr[x] = [];
+    }
+    for(let x = 0; x < w; x++){
+      for(let y = 0; y<h; y++){
+        arr[x][y] = value;
+      }
+    }
+    return arr;
   }
 
   //Print array to screen:
