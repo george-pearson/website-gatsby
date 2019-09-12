@@ -5,22 +5,19 @@ import * as style from './style.module.css';
 export default class CoffeeDrawself extends React.Component {
 
   onClickHandler = () => {
-    const svg = document.querySelector(`.${style.coffeeDrawself}`);
-    const path = svg.querySelector("path");
-    this.toggleAnimationPlayState(path);
+    this.setState((prevState) => {
+      return { running: !prevState.running }
+    });
+  }
+
+  state = {
+    running: false
   }
 
   render() {
+    const coffeeClass = this.state.running ? style.coffeeDrawselfOn : style.coffeeDrawselfOff;
     return (
-      <Coffee className={style.coffeeDrawself} onClick={this.onClickHandler} />
+      <Coffee className={coffeeClass} onClick={this.onClickHandler} />
     )
-  }
-
-  toggleAnimationPlayState(element){
-    if (element.style.animationPlayState === 'running') {
-      element.style.animationPlayState = 'paused';
-    } else {
-        element.style.animationPlayState = 'running';
-    }
   }
 }

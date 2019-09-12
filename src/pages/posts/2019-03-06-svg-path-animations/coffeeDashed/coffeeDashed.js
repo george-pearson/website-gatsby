@@ -5,22 +5,19 @@ import * as style from './style.module.css';
 export default class CoffeeDashed extends React.Component {
 
   onClickHandler = () => {
-    const svg = document.querySelector(`.${style.coffeeDashed}`);
-    const path = svg.querySelector("path");
-    this.toggleAnimationPlayState(path);
+    this.setState((prevState) => {
+      return { running: !prevState.running }
+    });
+  }
+
+  state = {
+    running: false
   }
 
   render() {
+    const coffeeClass = this.state.running ? style.coffeeDashedOn : style.coffeeDashedOff;
     return (
-      <Coffee className={style.coffeeDashed} onClick={this.onClickHandler} />
+      <Coffee className={coffeeClass} onClick={this.onClickHandler} />
     )
-  }
-
-  toggleAnimationPlayState(element){
-    if (element.style.animationPlayState === 'running') {
-      element.style.animationPlayState = 'paused';
-    } else {
-        element.style.animationPlayState = 'running';
-    }
   }
 }
