@@ -1,0 +1,11 @@
+.flowerImage {
+    display: inline;
+}
+
+.flowerImageHidden {
+    display: none;
+}
+
+.container {
+    overflow-x: scroll
+}
