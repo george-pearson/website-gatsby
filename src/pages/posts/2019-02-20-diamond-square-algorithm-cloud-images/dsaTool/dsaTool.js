@@ -12,15 +12,16 @@ export default class DSATool extends React.Component {
   state = {
     color1: "#3c69ff",
     color2: "#ffffff",
-    defaultCloudImageHidden: false
+    defaultImageHidden: false,
   }
 
-  reloadClickHandler = () => {
+  reloadClickHandler = (event) => {
     const n = 9
     const N = Math.pow(2, n) + 1;
     const arr = this.runDSA(N);
     this.printToCanvas(arr);
-    this.setState({defaultCloudImageHidden: true});
+    this.setState({defaultImageHidden: true});
+    event.preventDefault();
   }
 
   color1ChangeHandler = (e) => {
@@ -32,16 +33,13 @@ export default class DSATool extends React.Component {
   }
 
   render() {
-    const defaultCloudImage = this.state.defaultCloudImageHidden ? 
-    <img className={style.hidden} src={cloudImage} alt="cloud"/> : 
-    <img src={cloudImage} alt="cloud"/>;
     return (
-        <div>
-            <canvas ref={this.canvas} width="0" height="0"></canvas>
-            {defaultCloudImage}
-            <div>
-                <input type="color" value={this.state.color1} onChange={this.color1ChangeHandler}/>
-                <input type="color" value={this.state.color2} onChange={this.color2ChangeHandler}/>
+        <div className={style.container}>
+            <canvas className={style.canvas} ref={this.canvas} width="0" height="0"></canvas>
+            <img className={this.state.defaultImageHidden ? style.defaultImageHidden : style.defaultImage} src={cloudImage} alt="cloud"/>
+            <div className={style.container}>
+                <input className={style.inputControl} type="color" value={this.state.color1} onChange={this.color1ChangeHandler}/>
+                <input className={style.inputControl} type="color" value={this.state.color2} onChange={this.color2ChangeHandler}/>
                 <button onClick={this.reloadClickHandler}>Reload</button>
             </div>
         </div>

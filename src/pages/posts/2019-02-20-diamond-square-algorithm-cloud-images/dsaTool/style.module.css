@@ -1,3 +1,19 @@
-.hidden {
+.canvas {
+    display: block;
+}
+
+.defaultImage {
+    display: block;
+}
+
+.defaultImageHidden {
     display: none;
+}
+
+.container {
+    padding: 0.5rem 0;
+}
+
+.inputControl {
+    margin: 0 0.5rem;
 }

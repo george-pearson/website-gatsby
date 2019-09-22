@@ -27,7 +27,29 @@
     background-position: 0 100%;
 }
 
-.post h2{
+.post h2 {
     color: var(--darkgreen);
     font-weight: 900;
+}
+
+.post button {
+    color: var(--white);
+    background-color: var(--skyblue);
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 1px solid var(--darkgrey);
+    display: inline-block;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+
+.post button:hover {
+    transition-duration: 0.5s;
+    background-color: var(--darkblue);
+}
+
+.post button:active {
+    position: relative;
+    top:1px;
 }
