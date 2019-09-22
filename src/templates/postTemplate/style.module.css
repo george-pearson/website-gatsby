@@ -1,0 +1,33 @@
+.post {
+    color: var(--darkgrey);
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 
+    1fr 
+    minmax(calc(18rem/2), calc(46rem/2)) 
+    minmax(calc(18rem/2), calc(46rem/2))
+    1fr;
+}
+
+.post > * {
+    grid-column: 2 / span 2;
+}
+
+.post a {
+    color: var(--skyblue);
+    text-decoration: none;
+    background-image: linear-gradient(to top, var(--skyblue), var(--skyblue) 50%, transparent 50%, transparent);
+    background-position: 0% 0%;
+    background-size: 100% 200%;
+    transition-duration: 0.5s;
+}
+
+.post a:hover {
+    color: var(--white);
+    background-position: 0 100%;
+}
+
+.post h2{
+    color: var(--darkgreen);
+    font-weight: 900;
+}

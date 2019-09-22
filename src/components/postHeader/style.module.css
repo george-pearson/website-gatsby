@@ -1,0 +1,14 @@
+.postHeader {
+    color: var(--skyblue);
+    padding-bottom: 1rem;
+}
+
+.postTitle {
+    margin: 0;
+    font-weight: 900;
+}
+
+.postDate {
+    font-size: 1.4rem;
+}
+

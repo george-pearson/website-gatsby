@@ -6,6 +6,7 @@ import InlineCode from "../../components/inlineCode/inlineCode";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
+import * as style from "./style.module.css";
 
 
 export default class PostTemplate extends React.Component {
@@ -20,10 +21,12 @@ export default class PostTemplate extends React.Component {
     const post = data.mdx;
     return (
       <Layout>
-        <PostHeader post={post} />
-        <MDXProvider components={this.components}>
-          <MDXRenderer>{post.body}</MDXRenderer>
-        </MDXProvider>
+        <div className={style.post}>
+          <PostHeader post={post} />
+          <MDXProvider components={this.components}>
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </MDXProvider>
+        </div>
       </Layout>
     )
   }
