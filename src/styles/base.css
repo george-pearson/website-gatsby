@@ -13,7 +13,7 @@ p {
     line-height: 1.5;
 }
 
-.blueLink {
+.blueLink, .footnote-ref, .footnote-backref {
     color: var(--skyblue);
     text-decoration: none;
     background-image: linear-gradient(to top, var(--skyblue), var(--skyblue) 50%, transparent 50%, transparent);
@@ -22,7 +22,7 @@ p {
     transition-duration: 0.5s;
 }
 
-.blueLink:hover {
+.blueLink:hover, .footnote-ref:hover, .footnote-backref:hover {
     color: var(--white);
     background-position: 0 100%;
 }

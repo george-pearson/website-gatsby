@@ -11,7 +11,12 @@
 }
 
 .container {
+    overflow-x: scroll;
     padding: 0.5rem 0;
+}
+
+.controls {
+    padding-top: 0.5rem;
 }
 
 .inputControl {
