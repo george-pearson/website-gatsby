@@ -21,11 +21,13 @@ export default class PostTemplate extends React.Component {
     const post = data.mdx;
     return (
       <Layout>
-        <div className={style.post}>
-          <PostHeader post={post} />
-          <MDXProvider components={this.components}>
-            <MDXRenderer>{post.body}</MDXRenderer>
-          </MDXProvider>
+        <div className={style.postContainer}>
+          <div className={style.post}>
+            <PostHeader post={post} />
+            <MDXProvider components={this.components}>
+              <MDXRenderer>{post.body}</MDXRenderer>
+            </MDXProvider>
+          </div>
         </div>
       </Layout>
     )

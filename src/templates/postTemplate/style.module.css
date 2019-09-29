@@ -1,16 +1,15 @@
-.post {
-    color: var(--darkgrey);
-    padding: 15px;
+.postContainer {
     display: grid;
     grid-template-columns: 
     1fr 
-    minmax(calc(18rem/2), calc(46rem/2)) 
-    minmax(calc(18rem/2), calc(46rem/2))
+    minmax(18rem, 46rem) 
     1fr;
 }
 
-.post > * {
-    grid-column: 2 / span 2;
+.post {
+    color: var(--darkgrey);
+    padding: 15px;
+    grid-column: 2 / span 1;
 }
 
 .post a {

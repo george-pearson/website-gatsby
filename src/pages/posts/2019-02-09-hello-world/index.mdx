@@ -4,6 +4,9 @@ subtitle: "My first blog post on this site. I go over how I made my website and 
 date: "2019-02-09"
 ---
 
+import sunset from "../../../../static/photos/Sunset.jpg";
+import * as commonStyle from "../common.module.css";
+
 I've finally shipped! After about a month of what seems like going backwards and forwards I've made my first post on my brand new website. I’m going to try and do at least one post a month, and I plan to keep them relatively short. I can’t promise they won’t end up longer though if I really get into it!
 
 ## Jekyll and GitHub Pages
@@ -21,7 +24,7 @@ Jekyll also has a great HTML templating through use of <a href="https://jekyllrb
 
 ## Sass and Gulp
 At work we predominantly use CSS libraries like <a href="https://getbootstrap.com/" class="blueLink">Bootstrap</a>, but one thing I decided fairly early on was that I was going to develop all the CSS myself to improve my front-end skills. After a bit of online research I decided I was going to use the <a href="https://sass-lang.com/" class="blueLink">Sass</a> CSS templating language. Here's the Sass for those crazy blue links:
-```css
+```scss
 $color--skyblue: #00c1c1;
 $color--white: #fff;
 
@@ -50,7 +53,7 @@ $color--white: #fff;
 ```
 Sass makes your CSS code simpler with things like variables `$color--skyblue`, placeholder selectors `%transition-duration` and parent selectors `&:hover`. Essentially Sass means you don't have to repeat yourself so often!
 
-While investigating Sass I was directed to <a href="https://gulpjs.com/" class="blueLink">Gulp</a> a DevOps build tool. Gulp essentially allows you to automate command line tools for things like:
+While investigating Sass I was directed to [Gulp](https://gulpjs.com/) a DevOps build tool. Gulp essentially allows you to automate command line tools for things like:
 
 - Compiling Sass files to CSS when they change.
 - Minifying JavaScript and CSS files.
@@ -72,10 +75,14 @@ gulp.task("sass", function () {
 ```
 
 ## Photos
-<figure class="half-width-left"><img style="width:100%;" src="/assets/images/photos/Sunset.jpg" /></figure>
-<p class="half-width-right">
-One thing I thought I'd share on this blog is some <a href="/Photos" class="blueLink">photos</a> I've taken on my travels. In the future I'd like to develop that area into a gallery of some kind. The photos have been compressed using <a href="https://squoosh.app/" class="blueLink">Squoosh</a> making them take up less space and load quickly (hopefully).
-</p>
+<div className={commonStyle.halfWidthContainer}>
+    <div className={commonStyle.halfWidthLeft}>
+        <img style={{width: "100%"}} src={sunset} alt="sunset" />
+    </div>
+    <div className={commonStyle.halfWidthRight}>
+        <p>One thing I thought I'd share on this blog is some <a href="/Photos">photos</a> I've taken on my travels. In the future I'd like to develop that area into a gallery of some kind. The photos have been compressed using <a href="https://squoosh.app/">Squoosh</a> making them take up less space and load quickly (hopefully).</p>
+    </div>
+</div>
 
 ## Conclusion
 
