@@ -29,6 +29,11 @@
 .post h2 {
     color: var(--darkgreen);
     font-weight: 900;
+    margin: 0;
+}
+
+.post p {
+    margin: 1rem 0;
 }
 
 .post button {
