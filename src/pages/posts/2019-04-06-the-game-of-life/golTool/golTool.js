@@ -1,4 +1,7 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+import * as style from './style.module.css';
 
 export default class GOLTool extends React.Component {
 
@@ -23,7 +26,8 @@ export default class GOLTool extends React.Component {
 
   state = {
     color1: "#00ff00",
-    color2: "#000000"
+    color2: "#000000",
+    running: false
   }
 
   color1ChangeHandler = (e) => {
@@ -35,27 +39,29 @@ export default class GOLTool extends React.Component {
   }
 
   startClickHandler = () => {
-    if (!this.requestId) {
+    if (!this.state.running) {
+      this.setState({running: true});
       this.requestId = window.requestAnimationFrame(this.gameLoop);
     }
-  }
-
-  stopClickHandler = () => {
-    window.cancelAnimationFrame(this.requestId);
-    this.requestId = undefined;
+    else {
+      window.cancelAnimationFrame(this.requestId);
+      this.requestId = undefined;
+      this.setState({running: false});
+    }
   }
 
   render() {
     return (
-      <div>
+      <div className={style.container}>
         <canvas width="0" height="0" ref={this.canvas}></canvas>
-        <div>
-          <input type="color" value={this.state.color1} onChange={this.color1ChangeHandler}/>
-          <input type="color" value={this.state.color2} onChange={this.color2ChangeHandler}/>
-          <button onClick={this.startClickHandler}>Start</button>
-          <button onClick={this.stopClickHandler}>Stop</button>
-          <button onClick={this.crossClickHandler}>Cross</button>
-          <button onClick={this.acornClickHandler}>Acorn</button>
+        <div className={style.controls}>
+          <input className={style.control} type="color" value={this.state.color1} onChange={this.color1ChangeHandler}/>
+          <input className={style.control} type="color" value={this.state.color2} onChange={this.color2ChangeHandler}/>
+          <button className={style.control} onClick={this.startClickHandler}>
+            {this.state.running ? <FontAwesomeIcon icon={faPlay} /> : <FontAwesomeIcon icon={faPause} />}
+          </button>
+          <button className={style.control} onClick={this.crossClickHandler}>Cross</button>
+          <button className={style.control} onClick={this.acornClickHandler}>Acorn</button>
         </div>
       </div>
     )

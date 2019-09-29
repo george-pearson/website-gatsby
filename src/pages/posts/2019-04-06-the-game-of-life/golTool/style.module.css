@@ -1,0 +1,11 @@
+.container {
+    overflow-x: scroll;
+}
+
+.controls {
+    padding-top: 0.5rem;
+}
+
+.control {
+    margin-right: 0.5rem;
+}
