@@ -24,13 +24,13 @@ export default class SobelTool extends React.Component {
       <button onClick={this.selectImageButtonClickHandler}>Select an Image</button>
       <input 
         accept="image/*"
-        className={style.hidden}
+        className={style.displayHidden}
         type="file"
         ref={this.fileInput}
         onChange={this.selectImageChangeHandler}/>
       {this.state.imageSelected && (
         <div>
-          <div>
+          <div className={style.saturation}>
           <label>Saturation:</label>
           <input 
             type="range"
