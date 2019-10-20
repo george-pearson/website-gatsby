@@ -8,13 +8,12 @@ date: "2019-07-23"
 import UKAndIreland from "../../../../static/UKAndIreland.png";
 import UKAndIrelandCircles from "../../../../static/UKAndIrelandCircles.png";
 import CirclesMapTool from "./circlesMapTool/circlesMapTool";
-import * as style from "./style.module.css";
 
 In the <a class="blueLink" href="/2019-06-17-circles-everywhere">previous blog post</a> I showed how to generate Scalable Vector Graphics (SVGs) of small circles packed inside a larger circle using JavaScript. In today's post I'm packing circles inside a map of the UK and Ireland.
 
 The first thing we will need is a black and white map of the UK and Ireland. This is surprisingly difficult to find online, but after some intense search engine work I was able to get one:
 
-<img className={style.UKAndIreland} src={UKAndIreland} alt="UK and Ireland"/>
+<img style={{width: '100%', maxWidth: '30rem'}} src={UKAndIreland} alt="UK and Ireland"/>
 
 A black and white image allows us to easily check whether a pixel in the image is land (black) or sea (white), using its RGB(Red, Green, Blue) values. White, RGB(255, 255, 255), pixels will have an average RGB of 255 whereas black, RGB(0, 0, 0), pixels will have an average RGB of 0.
 
@@ -56,7 +55,7 @@ We can use the half way point between 0 and 255 (128) to determine if a pixel is
 
 The finished result (with 3000 circle place attempts!) looks pretty good:
 
-<img className={style.UKAndIreland} src={UKAndIrelandCircles} alt="UK and Ireland Circles"/>
+<img style={{width: '100%', maxWidth: '30rem'}} src={UKAndIrelandCircles} alt="UK and Ireland Circles"/>
 
 Here's a smaller interactive version, so you can make your own:
 
