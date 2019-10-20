@@ -1,11 +1,15 @@
-.flowerImage {
-    display: inline;
+.displayBlock {
+    display: block;
 }
 
-.flowerImageHidden {
+.displayHidden {
     display: none;
 }
 
 .container {
-    overflow-x: scroll
+    overflow-x: scroll;
+}
+
+.controls {
+    padding-top: 0.5rem;
 }

@@ -20,19 +20,23 @@ export default class FlowerSobel extends React.Component {
     return (
     <div>
       <div className={style.container}>
-        <canvas width="0" height="0" ref={this.canvas}></canvas>
+        <canvas className={
+          this.state.defaultFlowerImageHidden ?
+          style.displayBlock :
+          style.displayHidden}
+          ref={this.canvas}>
+        </canvas>
         <img 
             ref={this.image}
             className={
             this.state.defaultFlowerImageHidden ? 
-            style.flowerImageHidden :
-            style.flowerImage
-            }
+            style.displayHidden :
+            style.displayBlock}
             src={flower}
             alt="flower"
         />
       </div>
-      <div>
+      <div className={style.controls}>
         <button onClick={this.applyClickHandler}>
           {this.state.transformApplied ? "Reload" : "Apply"}
         </button>
