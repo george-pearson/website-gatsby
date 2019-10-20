@@ -30,11 +30,29 @@ export default class CirclesTool extends React.Component {
         {!this.state.defaultImageHidden && (<SmallCircles className={style.staticCircles}/>)}
         <canvas height="0" width="0" ref={this.canvas}></canvas>
         <div>
-            <input type="color" value={this.state.colour1} onChange={this.colour1ChangeHandler}/>
-            <input type="color" value={this.state.colour2} onChange={this.colour2ChangeHandler} />
-            <input type="color" value={this.state.colour3} onChange={this.colour3ChangeHandler}/>
-            <input type="color" value={this.state.colour4} onChange={this.colour4ChangeHandler}/>
-            <button onClick={this.reloadClickHandler}>Reload</button>
+            <input
+              className={style.control}
+              type="color"
+              value={this.state.colour1}
+              onChange={this.colour1ChangeHandler}/>
+            <input
+              className={style.control}
+              type="color"
+              value={this.state.colour2}
+              onChange={this.colour2ChangeHandler} />
+            <input
+              className={style.control}
+              type="color"
+              value={this.state.colour3}
+              onChange={this.colour3ChangeHandler}/>
+            <input
+              className={style.control}
+              type="color"
+              value={this.state.colour4}
+              onChange={this.colour4ChangeHandler}/>
+            <button
+              className={style.control}
+              onClick={this.reloadClickHandler}>Reload</button>
         </div>
     </div>
     )

@@ -1,3 +1,5 @@
 .circles {
     max-width: 600px;
+    margin: auto;
+    display: block;
 }
