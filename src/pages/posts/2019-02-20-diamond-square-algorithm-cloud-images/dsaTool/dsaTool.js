@@ -34,15 +34,30 @@ export default class DSATool extends React.Component {
 
   render() {
     return (
-        <div className={style.container}>
-            <canvas className={style.canvas} ref={this.canvas} width="0" height="0"></canvas>
-            <img className={this.state.defaultImageHidden ? style.defaultImageHidden : style.defaultImage} src={cloudImage} alt="cloud"/>
-            <div className={style.controls}>
-                <input className={style.inputControl} type="color" value={this.state.color1} onChange={this.color1ChangeHandler}/>
-                <input className={style.inputControl} type="color" value={this.state.color2} onChange={this.color2ChangeHandler}/>
-                <button onClick={this.reloadClickHandler}>Reload</button>
-            </div>
+      <div className={style.container}>
+        <canvas className={this.state.defaultImageHidden ?
+          style.displayBlock :
+          style.displayHidden}
+          ref={this.canvas}></canvas>
+        <img className={this.state.defaultImageHidden ?
+          style.displayHidden :
+          style.displayBlock}
+          src={cloudImage}
+          alt="cloud"/>
+        <div className={style.controls}>
+            <input
+              className={style.inputControl}
+              type="color"
+              value={this.state.color1}
+              onChange={this.color1ChangeHandler}/>
+            <input
+              className={style.inputControl}
+              type="color"
+              value={this.state.color2}
+              onChange={this.color2ChangeHandler}/>
+            <button onClick={this.reloadClickHandler}>Reload</button>
         </div>
+      </div>
     )
   }
 

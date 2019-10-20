@@ -1,12 +1,8 @@
-.canvas {
+.displayBlock {
     display: block;
 }
 
-.defaultImage {
-    display: block;
-}
-
-.defaultImageHidden {
+.displayHidden {
     display: none;
 }
 
