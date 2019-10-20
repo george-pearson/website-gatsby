@@ -11,8 +11,8 @@ export default class Sidebar extends React.Component {
       <nav className={sidebarClass}>
         <Logo className={style.logo} />
         <Link to="/" className={style.sidebarItem}>Home</Link>
-        <Link to="/" className={style.sidebarItem}>About</Link>
-        <Link to="/" className={style.sidebarItem}>Photos</Link>
+        <Link to="/about" className={style.sidebarItem}>About</Link>
+        <Link to="/photos" className={style.sidebarItem}>Photos</Link>
       </nav>
     )
   }

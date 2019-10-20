@@ -21,8 +21,8 @@ export default class Header extends React.Component {
           </button>
           <div className={style.navBarMenu}>
             <Link to="/" className={style.navBarItem}>Home</Link>
-            <Link to="/" className={style.navBarItem}>About</Link>
-            <Link to="/" className={style.navBarItem}>Photos</Link>
+            <Link to="/about" className={style.navBarItem}>About</Link>
+            <Link to="/photos" className={style.navBarItem}>Photos</Link>
           </div>
         </nav>
       </header>

@@ -1,0 +1,23 @@
+.about {
+    color: var(--darkgrey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1em;
+}
+
+.profile {
+    margin: 1em;
+    height: auto;
+    width: 100%;
+    max-width: 20em;
+    border-radius: 50%;
+    padding: 0.25em;
+    border: 2px solid var(--lightgrey);
+}
+
+.aboutText {
+    padding: 1em;
+    max-width: 24em;
+}
