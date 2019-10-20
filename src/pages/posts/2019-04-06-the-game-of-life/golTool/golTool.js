@@ -58,7 +58,7 @@ export default class GOLTool extends React.Component {
           <input className={style.control} type="color" value={this.state.color1} onChange={this.color1ChangeHandler}/>
           <input className={style.control} type="color" value={this.state.color2} onChange={this.color2ChangeHandler}/>
           <button className={style.control} onClick={this.startClickHandler}>
-            {this.state.running ? <FontAwesomeIcon icon={faPlay} /> : <FontAwesomeIcon icon={faPause} />}
+            {this.state.running ? <FontAwesomeIcon icon={faPause}/> : <FontAwesomeIcon icon={faPlay}/>}
           </button>
           <button className={style.control} onClick={this.crossClickHandler}>Cross</button>
           <button className={style.control} onClick={this.acornClickHandler}>Acorn</button>
