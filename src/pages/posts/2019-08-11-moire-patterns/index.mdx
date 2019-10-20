@@ -1,0 +1,26 @@
+---
+title:  "Moiré Patterns"
+subtitle: "Making Moiré patterns with SVG CSS animations."
+imageSrc: "/assets/images/moiré-pattern.png"
+date: "2019-08-11"
+---
+
+import HexagonalLatticeExample from "./hexagonalLatticeExample/hexagonalLatticeExample";
+import LinesExample from "./linesExample/linesExample";
+import CirclesExample from "./circlesExample/circlesExample";
+
+A <a href="https://en.wikipedia.org/wiki/Moir%C3%A9_pattern" class="blueLink">Moiré pattern</a> is an interference pattern that occurs when two patterns of repeating lines or shapes are translated or rotated by a small amount relative to each other. Try clicking the SVG below. You should be able to notice lighter areas swelling in and out of the image (interference patterns).
+
+<HexagonalLatticeExample />
+
+Moiré patterns are more common than you would think. For example, taking a picture of a computer screen can result in a Moiré pattern on the image (try it out!). This essentially occurs because the grid of pixels on your computer screen can't be mapped perfectly to the grid of pixels in the camera image (some pixels get two pixels worth of information etc).
+
+Here's a simpler example of just two sets of rotating lines. Notice how the interference pattern is a wave and the frequency of the wave is proportional to the angle of rotation, see this <a href="https://en.wikipedia.org/wiki/Moir%C3%A9_pattern" class="blueLink">Wikipedia article</a> for further details.
+
+<LinesExample />
+
+Curved lines work too! These two sets of concentric circles make an interesting pattern:
+
+<CirclesExample />
+
+As always all of the code is available on my <a href="https://github.com/george-pearson" class="blueLink">GitHub</a>.
