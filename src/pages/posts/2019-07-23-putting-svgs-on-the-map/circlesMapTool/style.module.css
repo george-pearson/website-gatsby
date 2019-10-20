@@ -1,7 +1,15 @@
-.hidden {
+.displayNone {
     display: none;
 }
 
-.inline {
-    display: inline;
+.dislayBlock {
+    display: block;
+}
+
+.controlGroup {
+    padding: 0.5rem 0;
+}
+
+.control {
+    margin: 0.25rem 0.25rem;
 }

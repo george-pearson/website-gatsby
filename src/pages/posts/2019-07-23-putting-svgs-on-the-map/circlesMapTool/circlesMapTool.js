@@ -67,24 +67,71 @@ export default class CirclesMapTool extends React.Component {
   render(){
     return (
     <div>
-        <img className={this.state.defaultImageHidden ? style.hidden : style.inline} ref={this.image} src={UKAndIrelandSmall} alt="UK and Ireland"/>
-        <canvas height="0" width="0" ref={this.canvas}></canvas>
+        <img 
+          className={this.state.defaultImageHidden ? style.displayNone : style.displayBlock}
+          ref={this.image}
+          src={UKAndIrelandSmall}
+          alt="UK and Ireland"/>
+        <canvas
+          className={this.state.defaultImageHidden ? style.displayBlock : style.displayNone}
+          ref={this.canvas}>
+        </canvas>
         <div>
-            <input type="color" value={this.state.colour1} onChange={this.colour1ChangeHandler} disabled={this.state.working}/>
-            <input type="color" value={this.state.colour2} onChange={this.colour2ChangeHandler} disabled={this.state.working}/>
-            <input type="color" value={this.state.colour3} onChange={this.colour3ChangeHandler} disabled={this.state.working}/>
-            <input type="color" value={this.state.colour4} onChange={this.colour4ChangeHandler} disabled={this.state.working}/>
-            <div>
-              <label>Min radius:</label>
-              <input type="range" step="0.25" min="2" max="5" value={this.state.rmin} onChange={this.rminChangeHandler} disabled={this.state.working}/>
-              <span>{this.state.rmin}</span>
-            </div>
-            <div>
-                <label>Max radius:</label>
-                <input type="range" step="0.25" min="5" max="8" value={this.state.rmax} onChange={this.rmaxChangeHandler} disabled={this.state.working}/>
-                <span>{this.state.rmax}</span>
-            </div>
-            <button onClick={this.reloadClickHandler} disabled={this.state.working}>{this.state.working ? "Working on it..." : "Run"}</button>
+          <div className={style.controlGroup}>
+            <input
+              className={style.control}
+              type="color"
+              value={this.state.colour1}
+              onChange={this.colour1ChangeHandler}
+              disabled={this.state.working}/>
+            <input className={style.control}
+              type="color"
+              value={this.state.colour2}
+              onChange={this.colour2ChangeHandler}
+              disabled={this.state.working}/>
+            <input
+              className={style.control}
+              type="color" value={this.state.colour3}
+              onChange={this.colour3ChangeHandler}
+              disabled={this.state.working}/>
+            <input
+              className={style.control}
+              type="color"
+              value={this.state.colour4}
+              onChange={this.colour4ChangeHandler}
+              disabled={this.state.working}/>
+          </div>
+          <div className={style.controlGroup}>
+            <label>Min radius:</label>
+            <input
+              className={style.control}
+              type="range"
+              step="0.25"
+              min="2"
+              max="5"
+              value={this.state.rmin}
+              onChange={this.rminChangeHandler}
+              disabled={this.state.working}/>
+            <span className={style.control}>{this.state.rmin}</span>
+          </div>
+          <div className={style.controlGroup}>
+              <label>Max radius:</label>
+              <input
+                className={style.control}
+                type="range"
+                step="0.25"
+                min="5"
+                max="8"
+                value={this.state.rmax}
+                onChange={this.rmaxChangeHandler}
+                disabled={this.state.working}/>
+              <span className={style.control}>{this.state.rmax}</span>
+          </div>
+          <button
+            onClick={this.reloadClickHandler}
+            disabled={this.state.working}>
+            {this.state.working ? "Working on it..." : "Run"}
+          </button>
         </div>
     </div>
     )
