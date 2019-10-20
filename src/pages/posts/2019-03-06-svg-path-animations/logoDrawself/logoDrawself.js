@@ -6,6 +6,7 @@ export default class LogoDrawself extends React.Component {
 
   componentDidMount() {
     this.animations = this.createAnimations();
+    this.runAnimations();
   }
 
   onClickHandler = () => {
