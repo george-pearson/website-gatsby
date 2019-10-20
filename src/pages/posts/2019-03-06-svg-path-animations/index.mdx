@@ -11,7 +11,6 @@ import CoffeeDashed from "./coffeeDashed/coffeeDashed";
 import CoffeeDrawself from "./coffeeDrawself/coffeeDrawself";
 import CupcakeDrawself from "./cupcakeDrawself/cupcakeDrawself";
 import CupcakeDrawselfFade from "./cupcakeDrawselfFade/cupcakeDrawselfFade";
-import * as style from './style.module.css';
 import * as commonStyle from "../common.module.css";
 
 <LogoDrawself />
@@ -36,7 +35,7 @@ We'll start with a simple single path SVG:
 
 <div className={commonStyle.halfWidthContainer}>
     <div className={commonStyle.halfWidthLeft}>
-        <Coffee className={style.coffee} />
+        <Coffee />
     </div>
     <div className={commonStyle.halfWidthRight}>
         <CoffeeDashed />
