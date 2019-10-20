@@ -1,0 +1,15 @@
+.logoBracketsNotFound {
+    max-width: 650px;
+    max-height: 500px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 1em auto;
+}
+
+.container {
+    color: var(--darkgrey);
+    display: block;
+    margin: 1em auto;
+    text-align: center;
+}
