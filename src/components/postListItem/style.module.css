@@ -28,3 +28,10 @@
 .postSubtitle {
     color: var(--darkgrey);
 }
+
+.postImage {
+    padding: 0.5rem;
+    display: block;
+    height: 16rem;
+    margin: 0 auto;
+}

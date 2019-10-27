@@ -37,6 +37,7 @@ export const pageQuery = graphql`
             title
             subtitle
             date(formatString: "MMMM DD, YYYY")
+            image
           }
         }
       }
