@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../components/layout/layout";
 import Intro from "../../components/intro/intro";
 import Paginator from "../../components/paginator/paginator";
-import PostList from "../../components/postList/postList";
+import PostListItem from "../../components/postListItem/postListItem";
 import { graphql } from "gatsby";
 
 export default class PostListTemplate extends React.Component {
@@ -13,7 +13,9 @@ export default class PostListTemplate extends React.Component {
     return (
       <Layout page="Home">
         <Intro />
-        <PostList posts={posts} />
+        {posts.map(
+            (post) => <PostListItem key={post.id} post={post} />
+        )}
         <Paginator currentPage={currentPage} numPages={numPages}/>
       </Layout>
     )
