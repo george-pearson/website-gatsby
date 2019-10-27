@@ -52,8 +52,10 @@ export default class Layout extends React.Component {
           <Header show={this.state.showHeader} navButtonClickHandler={this.navButtonClickHandler} />
           <Sidebar show={this.state.sidebarOpen} />
           {backdrop}
-          <main className={style.main}>{children}</main>
-          <Footer />
+          <div className={style.fixedFooterWrapper}>
+            <main className={style.main}>{children}</main>
+            <Footer />
+          </div>
         </div>
     )
   }

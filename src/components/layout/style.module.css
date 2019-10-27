@@ -1,4 +1,6 @@
-.main {
+.fixedFooterWrapper {
+    display: grid;
     margin-top: 4.5rem;
-    overflow: auto;
+    height: 100vh;
+    grid-template-rows: 1fr auto;
 }
