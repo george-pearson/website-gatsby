@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: `George Pearsons' Blog`,
     author: `George Pearson`,
-    description: `A blog about software development, science, and other musings by George Pearson`,
+    description: `A blog about software development, science, and other musings by George Pearson.`,
   },
   plugins: [
     {
@@ -14,9 +14,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
-    },
-    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
           rule: {
@@ -24,8 +21,6 @@ module.exports = {
           }
       }
     },
-    {
-      resolve: `gatsby-plugin-mdx`,
-    }
+    `gatsby-plugin-mdx`,
   ],
 }
