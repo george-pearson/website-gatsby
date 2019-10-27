@@ -33,7 +33,7 @@ export default class Paginator extends React.Component {
           ))}
           {!isLast && (
             <li className={style.paginatorListItem}>
-              <Link className={style.paginatorLink} to={nextPage}>
+              <Link className={style.paginatorLink} to={`/${nextPage}`}>
                 <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
               </Link>
             </li>
