@@ -6,7 +6,7 @@ import * as style from "./style.module.css";
 export default class NotFoundPage extends React.Component {
   render() {
     return (
-      <Layout>
+      <Layout page="NotFound">
         <div className={style.container}>
           <LogoBracketsNotFound className={style.logoBracketsNotFound}/>
           <p>Uh-oh, we can't seem to find that page...</p>

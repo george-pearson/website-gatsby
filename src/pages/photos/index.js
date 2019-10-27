@@ -13,7 +13,7 @@ import Beach from "../../../static/photos/Beach.jpg";
 export default class Photos extends React.Component {
   render() {
     return (
-      <Layout>
+      <Layout page="Photos">
         <div>
           <h2 className={style.photosTitle}>Photos</h2>
           <div className={style.gallery}>

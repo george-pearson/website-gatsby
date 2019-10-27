@@ -1,9 +1,10 @@
 
 module.exports = {
   siteMetadata: {
-    title: `George Pearsons' Blog`,
     author: `George Pearson`,
-    description: `A blog about software development, science, and other musings by George Pearson.`,
+    siteDescription: `A blog about software development, science, and other musings by George Pearson.`,
+    siteUrl: `https://georgepearson.co.uk`,
+    twitterUsername: `@georgepearson_`,
   },
   plugins: [
     {
@@ -22,5 +23,6 @@ module.exports = {
       }
     },
     `gatsby-plugin-mdx`,
+    `gatsby-plugin-react-helmet`
   ],
 }

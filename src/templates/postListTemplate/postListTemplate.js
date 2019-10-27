@@ -11,7 +11,7 @@ export default class PostListTemplate extends React.Component {
     const posts = data.allMdx.edges.map(edge => edge.node);
     const { currentPage, numPages } = this.props.pageContext;
     return (
-      <Layout>
+      <Layout page="Home">
         <Intro />
         <PostList posts={posts} />
         <Paginator currentPage={currentPage} numPages={numPages}/>

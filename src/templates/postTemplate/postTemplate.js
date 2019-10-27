@@ -20,7 +20,7 @@ export default class PostTemplate extends React.Component {
     const {data} = this.props;
     const post = data.mdx;
     return (
-      <Layout>
+      <Layout page="Post" post={post}>
         <div className={style.postContainer}>
           <div className={style.post}>
             <PostHeader post={post} />

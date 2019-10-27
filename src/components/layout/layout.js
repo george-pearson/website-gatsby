@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "../head/head";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import Sidebar from "../sidebar/sidebar";
@@ -42,13 +43,14 @@ export default class Layout extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { page, post, children } = this.props;
     let backdrop;
     if(this.state.sidebarOpen){
       backdrop = <Backdrop backdropClickHandler={this.backdropClickHandler} />;
     }
     return (
         <div>
+          <Head page={page} post={post} />
           <Header show={this.state.showHeader} navButtonClickHandler={this.navButtonClickHandler} />
           <Sidebar show={this.state.sidebarOpen} />
           {backdrop}

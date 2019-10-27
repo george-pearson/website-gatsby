@@ -6,7 +6,7 @@ import * as style from "./style.module.css";
 export default class About extends React.Component {
   render() {
     return (
-      <Layout>
+      <Layout page="About">
         <div className={style.about}>
             <img className={style.profile} src={Profile} alt="Me"/>
             <p className={style.aboutText}>
