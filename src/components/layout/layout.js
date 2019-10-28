@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "../head/head";
 import Header from "../header/header";
 import Footer from "../footer/footer";
@@ -6,59 +6,45 @@ import Sidebar from "../sidebar/sidebar";
 import Backdrop from "../backdrop/backdrop";
 import * as style from './style.module.css';
 
-export default class Layout extends React.Component {
-
-  state = {
-    sidebarOpen: false,
-    showHeader: true,
-    prevScrollPos: window.pageYOffset
-  };
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
+export default ({page, post, children}) => {
   
-  handleScroll = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  });
+  
+  const handleScroll = () => {
     var currentScrollPos = window.pageYOffset;
-    this.setState((prevState) => {
-      return { 
-        showHeader: prevState.prevScrollPos >= currentScrollPos,
-        prevScrollPos: currentScrollPos
-      }
-    });
+    setShowHeader(prevScrollPos >= currentScrollPos);
+    setPrevScrollPos(currentScrollPos);
   };
 
-  navButtonClickHandler = () => {
-    this.setState((prevState) => {
-      return { sidebarOpen: !prevState.sidebarOpen }
-    });
-  }
+  const navButtonClickHandler = () => {
+    setSidebarOpen((prevSidebarOpen) => !prevSidebarOpen.sidebarOpen);
+  };
 
-  backdropClickHandler = () => {
-    this.setState({ sidebarOpen: false });
-  }
+  const backdropClickHandler = () => {
+    setSidebarOpen(false);
+  };
 
-  render() {
-    const { page, post, children } = this.props;
-    let backdrop;
-    if(this.state.sidebarOpen){
-      backdrop = <Backdrop backdropClickHandler={this.backdropClickHandler} />;
-    }
-    return (
-        <div>
-          <Head page={page} post={post} />
-          <Header show={this.state.showHeader} navButtonClickHandler={this.navButtonClickHandler} />
-          <Sidebar show={this.state.sidebarOpen} />
-          {backdrop}
-          <div className={style.fixedFooterWrapper}>
-            <main className={style.main}>{children}</main>
-            <Footer />
-          </div>
+  return (
+      <div>
+        <Head page={page} post={post} />
+        <Header show={showHeader} navButtonClickHandler={navButtonClickHandler} />
+        <Sidebar show={sidebarOpen} />
+        {sidebarOpen && (
+          <Backdrop backdropClickHandler={backdropClickHandler} />
+        )}
+        <div className={style.fixedFooterWrapper}>
+          <main className={style.main}>{children}</main>
+          <Footer />
         </div>
-    )
-  }
-}
+      </div>
+  );
+};

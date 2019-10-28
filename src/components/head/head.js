@@ -3,8 +3,7 @@ import Helmet from "react-helmet";
 import { useSiteMetadata } from "../../hooks/useSiteMetadata";
 import logoImage from "../../../static/logo.png";
 
-export default (props) => {
-    const { page, post } = props;
+export default ({page, post}) => {
     const { author, siteDescription, siteUrl, twitterUsername } = useSiteMetadata();
     const pageTitle = post ? post.frontmatter.title : page;
     const description = post ? post.frontmatter.subtitle : siteDescription;
@@ -26,5 +25,5 @@ export default (props) => {
           { name: "twitter:description", content: description },
           { name: "twitter:image", content: pageImage },
         ]}/>
-    )
-}
+    );
+};

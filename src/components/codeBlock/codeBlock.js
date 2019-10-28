@@ -18,4 +18,4 @@ export default ({children, className}) => {
       )}
     </Highlight>
   )
-}
+};
