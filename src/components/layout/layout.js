@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import Head from "../head/head";
 import Header from "../header/header";
 import Footer from "../footer/footer";
@@ -12,7 +12,7 @@ export default ({page, post, children}) => {
   const [showHeader, setShowHeader] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
