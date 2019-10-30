@@ -1,69 +1,33 @@
-import React from "react";
+import React, {useState, useRef} from "react";
 import flower from "../../../../../static/flower.png";
 import * as style from './style.module.css';
 import { sobel, greyscale } from '../sobel.js';
 
-export default class FlowerSobel extends React.Component {
-  
-  constructor(props){
-    super(props);
-    this.canvas = React.createRef();
-    this.image = React.createRef();
-  }
+export default ({transformType}) => {
+  const canvas = useRef();
+  const image = useRef();
 
-  state = {
-    defaultFlowerImageHidden: false,
-    transformApplied: false
-  }
-  
-  render(){
-    return (
-    <div>
-      <div className={style.container}>
-        <canvas className={
-          this.state.defaultFlowerImageHidden ?
-          style.displayBlock :
-          style.displayHidden}
-          ref={this.canvas}>
-        </canvas>
-        <img 
-            ref={this.image}
-            className={
-            this.state.defaultFlowerImageHidden ? 
-            style.displayHidden :
-            style.displayBlock}
-            src={flower}
-            alt="flower"
-        />
-      </div>
-      <div className={style.controls}>
-        <button onClick={this.applyClickHandler}>
-          {this.state.transformApplied ? "Reload" : "Apply"}
-        </button>
-      </div>
-    </div>
-    )
-  }
+  const [defaultImageHidden, setDefaultImageHidden] = useState(false);
+  const [transformApplied, setTransformApplied] = useState(false);
 
-  applyClickHandler = () => {
-    const canvas = this.canvas.current;
-    const ctx = canvas.getContext("2d");
-    const image = this.image.current;
-    canvas.width = image.width;
-    canvas.height = image.height;
-    ctx.drawImage(image, 0, 0);
-    if(!this.state.transformApplied){
-      const transformedImageData = this.applyTransform(canvas);
+  const applyClickHandler = () => {
+    const ctx = canvas.current.getContext("2d");
+    canvas.current.width = image.current.width;
+    canvas.current.height = image.current.height;
+    ctx.drawImage(image.current, 0, 0);
+    if(!transformApplied){
+      const transformedImageData = applyTransform(canvas.current);
       ctx.putImageData(transformedImageData, 0, 0);
-      this.setState({defaultFlowerImageHidden: true, transformApplied: true});
+      setDefaultImageHidden(true);
+      setTransformApplied(true);
     }
     else{
-      this.setState({transformApplied: false});
+      setTransformApplied(false);
     }
   }
 
-  applyTransform = (canvas) => {
-    switch(this.props.transformType){
+  const applyTransform = (canvas) => {
+    switch(transformType){
       case "greyscale":
         return greyscale(canvas);
       case "sobel":
@@ -75,4 +39,24 @@ export default class FlowerSobel extends React.Component {
         return ctx.getImageData(0, 0, canvas.width, canvas.height);
     }
   }
-}
+  
+  return (
+    <div>
+      <div className={style.container}>
+        <canvas
+          ref={canvas}
+          className={defaultImageHidden ? style.displayBlock : style.displayHidden}/>
+        <img 
+          ref={image}
+          className={defaultImageHidden ? style.displayHidden : style.displayBlock}
+          src={flower}
+          alt="flower"/>
+      </div>
+      <div className={style.controls}>
+        <button onClick={applyClickHandler}>
+          {transformApplied ? "Reload" : "Apply"}
+        </button>
+      </div>
+    </div>
+  );
+};

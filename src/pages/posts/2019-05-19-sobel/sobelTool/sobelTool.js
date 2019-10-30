@@ -1,67 +1,25 @@
-import React from "react";
+import React, {useState, useRef} from "react";
 import * as style from "./style.module.css";
 import { sobel } from '../sobel.js';
 
-export default class SobelTool extends React.Component {
-  
-  constructor(props){
-    super(props);
-    this.canvas = React.createRef();
-    this.fileInput = React.createRef();
-    this.maxImageSize = 600;
-  }
+export default () => {
+  const canvas = useRef();
+  const fileInput = useRef();
+  const image = useRef();
+  const maxImageSize = 600;
 
-  state = {
-    imageSelected: false,
-    transformApplied: false,
-    saturation: 1
-  }
-  
-  render(){
-    return (
-    <div>
-      <canvas width="0" height="0" ref={this.canvas}></canvas>
-      <button onClick={this.selectImageButtonClickHandler}>Select an Image</button>
-      <input 
-        accept="image/*"
-        className={style.displayHidden}
-        type="file"
-        ref={this.fileInput}
-        onChange={this.selectImageChangeHandler}/>
-      {this.state.imageSelected && (
-        <div>
-          <div className={style.saturation}>
-          <label>Saturation:</label>
-          <input 
-            type="range"
-            step="0.01"
-            min="0"
-            max="1"
-            defaultValue={this.state.saturation}
-            onChange={this.saturationChangeHandler}/>
-          <span>{this.state.saturation}</span>
-          </div>
-          <button onClick={this.applyClickHandler}>
-            {this.state.transformApplied ? "Reload" : "Apply"}
-          </button>
-        </div>
-      )}
-    </div>
-    )
-  }
+  const [imageSelected, setImageSelected] = useState(false);
+  const [transformApplied, setTransformApplied] = useState(false);
+  const [saturation, setSaturation] = useState(1);
 
-  selectImageButtonClickHandler = () => {
-    this.fileInput.current.click();
-  }
-
-  selectImageChangeHandler = (e) => {
+  const selectImageChangeHandler = (e) => {
     const reader = new FileReader();
     reader.onload = (event) => {
-        this.image = new Image();
-        this.image.onload = () => {
-          this.drawImageToScale(this.image, this.maxImageSize, this.canvas.current);
+        image.current = new Image();
+        image.current.onload = () => {
+          drawImageToScale(image.current, maxImageSize, canvas.current);
         }
-        this.image.src = event.target.result;
+        image.current.src = event.target.result;
     }
     const file  = e.target.files[0];
     if (file && file.type.match('image.*')) {
@@ -69,25 +27,20 @@ export default class SobelTool extends React.Component {
     }
   }
 
-  saturationChangeHandler = (e) => {
-    this.setState({saturation: e.target.value});
-  }
-
-  applyClickHandler = () => {
-    const canvas = this.canvas.current;
-    const ctx = canvas.getContext("2d");
-    if(!this.state.transformApplied){
-      var id = sobel(canvas, this.state.saturation);
+  const applyClickHandler = () => {
+    const ctx = canvas.current.getContext("2d");
+    if(!transformApplied){
+      const id = sobel(canvas.current, saturation);
       ctx.putImageData(id, 0, 0);
-      this.setState({transformApplied: true});
+      setTransformApplied(true);
     }
     else{
-      this.drawImageToScale(this.image, this.maxImageSize, canvas);
-      this.setState({transformApplied: false});
+      drawImageToScale(image.current, maxImageSize, canvas.current);
+      setTransformApplied(false);
     }
   }
 
-  drawImageToScale(image, maxSize, canvas){
+  const drawImageToScale = (image, maxSize, canvas) => {
     let scale = 1;
     if(maxSize < image.width || maxSize < image.height){
       scale = Math.min(maxSize / image.width, maxSize / image.height);
@@ -96,6 +49,37 @@ export default class SobelTool extends React.Component {
     canvas.height = image.height * scale;
     const ctx = canvas.getContext("2d");
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-    this.setState({imageSelected: true});
+    setImageSelected(true);
   }
-}
+  
+  return (
+    <div>
+      <canvas ref={canvas} width="0" height="0"/>
+      <button onClick={() => fileInput.current.click()}>Select an Image</button>
+      <input 
+        accept="image/*"
+        className={style.displayHidden}
+        type="file"
+        ref={fileInput}
+        onChange={selectImageChangeHandler}/>
+      {imageSelected && (
+        <div>
+          <div className={style.saturation}>
+          <label>Saturation:</label>
+          <input 
+            type="range"
+            step="0.01"
+            min="0"
+            max="1"
+            defaultValue={saturation}
+            onChange={(e) => setSaturation(e.target.value)}/>
+          <span>{saturation}</span>
+          </div>
+          <button onClick={applyClickHandler}>
+            {transformApplied ? "Reload" : "Apply"}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};

@@ -19,13 +19,11 @@ export default () => {
 
   return (
     <div className={style.container}>
-      <canvas className={defaultImageHidden ?
-        style.displayBlock :
-        style.displayHidden}
-        ref={canvas}></canvas>
-      <img className={defaultImageHidden ?
-        style.displayHidden :
-        style.displayBlock}
+      <canvas
+        ref={canvas}
+        className={defaultImageHidden ? style.displayBlock : style.displayHidden}/>
+      <img 
+        className={defaultImageHidden ? style.displayHidden : style.displayBlock}
         src={cloudImage}
         alt="cloud"/>
       <div className={style.controls}>

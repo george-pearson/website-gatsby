@@ -53,7 +53,7 @@ export default class GOLTool extends React.Component {
   render() {
     return (
       <div className={style.container}>
-        <canvas width="0" height="0" ref={this.canvas}></canvas>
+        <canvas ref={this.canvas}/>
         <div className={style.controls}>
           <input className={style.control} type="color" value={this.state.color1} onChange={this.color1ChangeHandler}/>
           <input className={style.control} type="color" value={this.state.color2} onChange={this.color2ChangeHandler}/>
