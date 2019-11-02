@@ -1,8 +1,8 @@
 import React, {useRef, useState} from "react";
 import ReactDOMServer from 'react-dom/server';
 import * as style from "./style.module.css";
-import UKAndIrelandSmall from "../../../../../static/UKAndIrelandSmall.png";
-import WebWorker from "../../../../components/webWorker/webWorker";
+import UKAndIrelandSmall from "../../../../static/UKAndIrelandSmall.png";
+import WebWorker from "../../webWorker/webWorker";
 import workerjs from "./worker.js";
 
 export default () => {

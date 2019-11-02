@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useRef} from "react";
-import LinesExampleSvg from "../../../../../static/linesExample.inline.svg";
+import LinesExampleSvg from "../../../../static/linesExample.inline.svg";
 import * as style from './style.module.css';
 
 export default () => {

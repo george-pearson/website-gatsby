@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react";
 import ReactDOMServer from 'react-dom/server';
 import * as style from "./style.module.css";
-import SmallCircles from "../../../../../static/circlesInCircleSmall.inline.svg";
+import SmallCircles from "../../../../static/circlesInCircleSmall.inline.svg";
 
 const svgWidth = 300;
 const svgHeight = 300;

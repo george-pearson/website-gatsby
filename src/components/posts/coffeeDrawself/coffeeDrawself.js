@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Coffee from "../../../../../static/coffee.inline.svg";
+import Coffee from "../../../../static/coffee.inline.svg";
 import * as style from './style.module.css';
 
 export default () => {

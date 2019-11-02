@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import cloudImage from "../../../../../static/cloudImage.jpg";
+import cloudImage from "../../../../static/cloudImage.jpg";
 import * as style from './style.module.css';
 
 export default () => {

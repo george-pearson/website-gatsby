@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useRef} from "react";
-import Logo from "../../../../../static/logo.inline.svg";
+import Logo from "../../../../static/logo.inline.svg";
 import * as style from './style.module.css';
 
 export default () => {

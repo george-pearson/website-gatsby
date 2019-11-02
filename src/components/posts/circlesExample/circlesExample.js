@@ -1,12 +1,12 @@
-import React, {useLayoutEffect, useRef}  from "react";
-import HexagonalLatticeExampleSvg from "../../../../../static/hexagonalLatticeExample.inline.svg";
+import React, {useLayoutEffect, useRef} from "react";
+import CirclesExampleSvg from "../../../../static/circlesExample.inline.svg";
 import * as style from './style.module.css';
 
 export default () => {
 
   const groups = useRef();
   useLayoutEffect(() => {
-    const svg = document.querySelector(`.${style.hexagonalLatticeExample}`);
+    const svg = document.querySelector(`.${style.circlesExample}`);
     groups.current = svg.querySelectorAll("g");
   });
 
@@ -17,6 +17,6 @@ export default () => {
   }
 
   return (
-    <HexagonalLatticeExampleSvg className={style.hexagonalLatticeExample} onClick={onClickHandler} />
+    <CirclesExampleSvg className={style.circlesExample} onClick={onClickHandler} />
   );
 };
