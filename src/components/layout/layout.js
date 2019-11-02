@@ -10,17 +10,17 @@ export default ({page, post, children}) => {
   
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
 
   useLayoutEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    document.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('scroll', handleScroll);
     };
   });
   
   const handleScroll = () => {
-    var currentScrollPos = window.pageYOffset;
+    const currentScrollPos = typeof window !== 'undefined' ? window.pageYOffset : 0;
     setShowHeader(prevScrollPos >= currentScrollPos);
     setPrevScrollPos(currentScrollPos);
   };

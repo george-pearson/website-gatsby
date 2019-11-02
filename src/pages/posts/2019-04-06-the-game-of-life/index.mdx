@@ -59,11 +59,11 @@ var arr = create2Darray(N, N, DEAD); // Iitialises a new 2D array with array val
 var requestId;
 gameLoop();
 
-// Runs forever, call window.cancelAnimationFrame(requestId) to stop.
+// Runs forever, call cancelAnimationFrame(requestId) to stop.
 function gameLoop() {
   arr = iterate(arr);
   print_to_canvas(arr);
-  requestId = window.requestAnimationFrame(gameLoop);
+  requestId = requestAnimationFrame(gameLoop);
 }
 
 // Iterate the next state of the array.

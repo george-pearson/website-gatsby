@@ -41,10 +41,10 @@ export default class GOLTool extends React.Component {
   startClickHandler = () => {
     if (!this.state.running) {
       this.setState({running: true});
-      this.requestId = window.requestAnimationFrame(this.gameLoop);
+      this.requestId = requestAnimationFrame(this.gameLoop);
     }
     else {
-      window.cancelAnimationFrame(this.requestId);
+      cancelAnimationFrame(this.requestId);
       this.requestId = undefined;
       this.setState({running: false});
     }
@@ -70,7 +70,7 @@ export default class GOLTool extends React.Component {
   gameLoop = () => {
     this.arr = this.iterate(this.arr);
     this.printToCanvas(this.arr, this.cellSize, this.canvas.current);
-    this.requestId = window.requestAnimationFrame(this.gameLoop);
+    this.requestId = requestAnimationFrame(this.gameLoop);
   }
 
   iterate(oldArray){
