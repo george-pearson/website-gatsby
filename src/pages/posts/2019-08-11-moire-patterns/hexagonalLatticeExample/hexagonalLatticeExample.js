@@ -1,23 +1,22 @@
-import React from "react";
+import React, {useLayoutEffect, useRef}  from "react";
 import HexagonalLatticeExampleSvg from "../../../../../static/hexagonalLatticeExample.inline.svg";
 import * as style from './style.module.css';
 
-export default class HexagonalLatticeExample extends React.Component {
+export default () => {
 
-  componentDidMount() {
+  const groups = useRef();
+  useLayoutEffect(() => {
     const svg = document.querySelector(`.${style.hexagonalLatticeExample}`);
-    this.groups = svg.querySelectorAll("g");
-  }
+    groups.current = svg.querySelectorAll("g");
+  });
 
-  onClickHandler = () => {
-    this.groups.forEach((group) => {
+  function onClickHandler() {
+    groups.current.forEach((group) => {
       group.style.animationPlayState = group.style.animationPlayState === 'running' ? 'paused' : 'running';
     });
   }
 
-  render() {
-    return (
-      <HexagonalLatticeExampleSvg className={style.hexagonalLatticeExample} onClick={this.onClickHandler} />
-    )
-  }
-}
+  return (
+    <HexagonalLatticeExampleSvg className={style.hexagonalLatticeExample} onClick={onClickHandler} />
+  );
+};

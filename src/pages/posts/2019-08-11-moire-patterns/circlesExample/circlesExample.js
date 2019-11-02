@@ -1,23 +1,22 @@
-import React from "react";
+import React, {useLayoutEffect, useRef} from "react";
 import CirclesExampleSvg from "../../../../../static/circlesExample.inline.svg";
 import * as style from './style.module.css';
 
-export default class CirclesExample extends React.Component {
+export default () => {
 
-  componentDidMount() {
+  const groups = useRef();
+  useLayoutEffect(() => {
     const svg = document.querySelector(`.${style.circlesExample}`);
-    this.groups = svg.querySelectorAll("g");
-  }
+    groups.current = svg.querySelectorAll("g");
+  });
 
-  onClickHandler = () => {
-    this.groups.forEach((group) => {
+  function onClickHandler() {
+    groups.current.forEach((group) => {
       group.style.animationPlayState = group.style.animationPlayState === 'running' ? 'paused' : 'running';
     });
   }
 
-  render() {
-    return (
-      <CirclesExampleSvg className={style.circlesExample} onClick={this.onClickHandler} />
-    )
-  }
-}
+  return (
+    <CirclesExampleSvg className={style.circlesExample} onClick={onClickHandler} />
+  );
+};
