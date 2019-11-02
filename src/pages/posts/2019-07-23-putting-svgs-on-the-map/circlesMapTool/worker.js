@@ -2,7 +2,7 @@ const self = this;
 export default () => {
     self.addEventListener('message', e => {
         var properties = e.data[0];
-        var cicles = makeCircles(
+        var circles = makeCircles(
             properties.imageData, 
             properties.circleColours, 
             properties.rmin, 
@@ -10,7 +10,7 @@ export default () => {
             properties.n,
             properties.LX,
             properties.LY);
-        self.postMessage([cicles]);
+        self.postMessage([{circles: circles, LX: properties.LX, LY: properties.LY}]);
     }, false);
     
     function makeCircles(imageData, circleColours, rmin, rmax, n, LX, LY) {
