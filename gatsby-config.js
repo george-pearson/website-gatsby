@@ -13,8 +13,10 @@ module.exports = {
       options: {
         name: `George Pearson's Blog`,
         short_name: `George's Blog`,
+        description: `A blog about software development, science, and other musings by George Pearson.`,
+        lang: `en`,
         start_url: `/`,
-        background_color: `transparent`,
+        background_color: `#ebebe0`,
         theme_color: `#ebebe0`,
         display: `standalone`,
         icon: `static/icon.png`
