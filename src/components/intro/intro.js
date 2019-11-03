@@ -1,5 +1,5 @@
 import React from "react";
-import * as style from './style.module.css';
+import * as style from "./style.module.css";
 import LogoBrackets from "../../../static/logoBrackets.inline.svg";
 import { Link } from "gatsby";
 

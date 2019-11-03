@@ -19,47 +19,67 @@ export default class Photos extends React.Component {
           <div className={style.gallery}>
             <div>
               <a href={CommonBlue}>
-                <img className={style.galleryImage} src={CommonBlue} alt="CommonBlue"/>
+                <img
+                  className={style.galleryImage}
+                  src={CommonBlue}
+                  alt="CommonBlue"
+                />
               </a>
             </div>
             <div>
               <a href={Alps}>
-                <img className={style.galleryImage} src={Alps} alt="Alps"/>
+                <img className={style.galleryImage} src={Alps} alt="Alps" />
               </a>
             </div>
             <div>
               <a href={Harvest}>
-                <img className={style.galleryImage} src={Harvest} alt="Harvest"/>
+                <img
+                  className={style.galleryImage}
+                  src={Harvest}
+                  alt="Harvest"
+                />
               </a>
             </div>
             <div>
               <a href={GreatWillowHerb}>
-                <img className={style.galleryImage} src={GreatWillowHerb} alt="GreatWillowHerb"/>
+                <img
+                  className={style.galleryImage}
+                  src={GreatWillowHerb}
+                  alt="GreatWillowHerb"
+                />
               </a>
             </div>
             <div>
               <a href={Sunset}>
-                <img className={style.galleryImage} src={Sunset} alt="Sunset"/>
+                <img className={style.galleryImage} src={Sunset} alt="Sunset" />
               </a>
             </div>
             <div>
               <a href={Rockpools}>
-                <img className={style.galleryImage} src={Rockpools} alt="Rockpools"/>
+                <img
+                  className={style.galleryImage}
+                  src={Rockpools}
+                  alt="Rockpools"
+                />
               </a>
             </div>
             <div>
               <a href={Peninsula}>
-                <img className={style.galleryImage} src={Peninsula} alt="Peninsula"/>
+                <img
+                  className={style.galleryImage}
+                  src={Peninsula}
+                  alt="Peninsula"
+                />
               </a>
             </div>
             <div>
               <a href={Beach}>
-                <img className={style.galleryImage} src={Beach} alt="Beach"/>
+                <img className={style.galleryImage} src={Beach} alt="Beach" />
               </a>
             </div>
           </div>
         </div>
       </Layout>
-    )
+    );
   }
 }

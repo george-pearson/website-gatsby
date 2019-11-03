@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import * as style from "./style.module.css";
 
-export default ({post}) => {
+export default ({ post }) => {
   const postImage = post.frontmatter.image;
   return (
     <div className={style.postListItem}>
@@ -11,7 +11,11 @@ export default ({post}) => {
         <p className={style.postMeta}>Posted on {post.frontmatter.date}</p>
         <p className={style.postSubtitle}>{post.frontmatter.subtitle}</p>
         {postImage && (
-          <img className={style.postImage} src={postImage} alt={post.frontmatter.title}/>
+          <img
+            className={style.postImage}
+            src={postImage}
+            alt={post.frontmatter.title}
+          />
         )}
       </Link>
     </div>

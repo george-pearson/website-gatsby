@@ -1,9 +1,8 @@
-import React, {useLayoutEffect, useRef}  from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import HexagonalLatticeExampleSvg from "../../../../static/hexagonalLatticeExample.inline.svg";
-import * as style from './style.module.css';
+import * as style from "./style.module.css";
 
 export default () => {
-
   const groups = useRef();
   useLayoutEffect(() => {
     const svg = document.querySelector(`.${style.hexagonalLatticeExample}`);
@@ -11,12 +10,16 @@ export default () => {
   });
 
   function onClickHandler() {
-    groups.current.forEach((group) => {
-      group.style.animationPlayState = group.style.animationPlayState === 'running' ? 'paused' : 'running';
+    groups.current.forEach(group => {
+      group.style.animationPlayState =
+        group.style.animationPlayState === "running" ? "paused" : "running";
     });
   }
 
   return (
-    <HexagonalLatticeExampleSvg className={style.hexagonalLatticeExample} onClick={onClickHandler} />
+    <HexagonalLatticeExampleSvg
+      className={style.hexagonalLatticeExample}
+      onClick={onClickHandler}
+    />
   );
 };

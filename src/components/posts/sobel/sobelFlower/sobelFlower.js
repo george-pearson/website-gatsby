@@ -1,9 +1,9 @@
-import React, {useState, useRef} from "react";
+import React, { useState, useRef } from "react";
 import flower from "../../../../../static/flower.png";
-import * as style from './style.module.css';
-import { sobel, greyscale } from '../sobel.js';
+import * as style from "./style.module.css";
+import { sobel, greyscale } from "../sobel.js";
 
-export default ({transformType}) => {
+export default ({ transformType }) => {
   const canvas = useRef();
   const image = useRef();
 
@@ -15,19 +15,18 @@ export default ({transformType}) => {
     canvas.current.width = image.current.width;
     canvas.current.height = image.current.height;
     ctx.drawImage(image.current, 0, 0);
-    if(!transformApplied){
+    if (!transformApplied) {
       const transformedImageData = applyTransform(canvas.current);
       ctx.putImageData(transformedImageData, 0, 0);
       setDefaultImageHidden(true);
       setTransformApplied(true);
-    }
-    else{
+    } else {
       setTransformApplied(false);
     }
-  }
+  };
 
-  const applyTransform = (canvas) => {
-    switch(transformType){
+  const applyTransform = canvas => {
+    switch (transformType) {
       case "greyscale":
         return greyscale(canvas);
       case "sobel":
@@ -38,19 +37,25 @@ export default ({transformType}) => {
         const ctx = canvas.getContext("2d");
         return ctx.getImageData(0, 0, canvas.width, canvas.height);
     }
-  }
-  
+  };
+
   return (
     <div>
       <div className={style.container}>
         <canvas
           ref={canvas}
-          className={defaultImageHidden ? style.displayBlock : style.displayHidden}/>
-        <img 
+          className={
+            defaultImageHidden ? style.displayBlock : style.displayHidden
+          }
+        />
+        <img
           ref={image}
-          className={defaultImageHidden ? style.displayHidden : style.displayBlock}
+          className={
+            defaultImageHidden ? style.displayHidden : style.displayBlock
+          }
           src={flower}
-          alt="flower"/>
+          alt="flower"
+        />
       </div>
       <div className={style.controls}>
         <button onClick={applyClickHandler}>

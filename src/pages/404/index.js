@@ -8,11 +8,13 @@ export default class NotFoundPage extends React.Component {
     return (
       <Layout page="NotFound">
         <div className={style.container}>
-          <LogoBracketsNotFound className={style.logoBracketsNotFound}/>
+          <LogoBracketsNotFound className={style.logoBracketsNotFound} />
           <p>Uh-oh, we can't seem to find that page...</p>
-          <a className="blueLink" href="/">Back to homepage</a>
+          <a className="blueLink" href="/">
+            Back to homepage
+          </a>
         </div>
       </Layout>
-    )
+    );
   }
 }

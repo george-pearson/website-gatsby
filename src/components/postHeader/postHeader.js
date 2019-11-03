@@ -1,7 +1,7 @@
 import React from "react";
 import * as style from "./style.module.css";
 
-export default ({post}) => {
+export default ({ post }) => {
   return (
     <div className={style.postHeader}>
       <h1 className={style.postTitle}>{post.frontmatter.title}</h1>

@@ -13,12 +13,12 @@ export default class PostListTemplate extends React.Component {
     return (
       <Layout page="Home">
         <Intro />
-        {posts.map(
-            (post) => <PostListItem key={post.id} post={post} />
-        )}
-        <Paginator currentPage={currentPage} numPages={numPages}/>
+        {posts.map(post => (
+          <PostListItem key={post.id} post={post} />
+        ))}
+        <Paginator currentPage={currentPage} numPages={numPages} />
       </Layout>
-    )
+    );
   }
 }
 
@@ -45,4 +45,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

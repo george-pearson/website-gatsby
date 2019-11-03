@@ -8,16 +8,14 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
 import * as style from "./style.module.css";
 
-
 export default class PostTemplate extends React.Component {
-
   components = {
     code: CodeBlock,
-    inlineCode: InlineCode
-  }
+    inlineCode: InlineCode,
+  };
 
   render() {
-    const {data} = this.props;
+    const { data } = this.props;
     const post = data.mdx;
     return (
       <Layout page="Post" post={post}>
@@ -30,7 +28,7 @@ export default class PostTemplate extends React.Component {
           </div>
         </div>
       </Layout>
-    )
+    );
   }
 }
 
@@ -47,4 +45,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

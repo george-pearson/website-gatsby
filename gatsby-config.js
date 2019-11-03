@@ -18,10 +18,10 @@ module.exports = {
         background_color: `#ebebe0`,
         theme_color: `#ebebe0`,
         display: `standalone`,
-        icon: `static/icon.png`
+        icon: `static/icon.png`,
       },
     },
-    'gatsby-plugin-offline',
+    "gatsby-plugin-offline",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,14 +30,14 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: "gatsby-plugin-react-svg",
       options: {
-          rule: {
-            include: /\.inline\.svg$/
-          }
-      }
+        rule: {
+          include: /\.inline\.svg$/,
+        },
+      },
     },
     `gatsby-plugin-mdx`,
-    `gatsby-plugin-react-helmet`
+    `gatsby-plugin-react-helmet`,
   ],
-}
+};
