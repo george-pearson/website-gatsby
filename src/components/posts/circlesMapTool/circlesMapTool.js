@@ -2,16 +2,12 @@ import React, {useRef, useState} from "react";
 import ReactDOMServer from 'react-dom/server';
 import * as style from "./style.module.css";
 import UKAndIrelandSmall from "../../../../static/UKAndIrelandSmall.png";
-import WebWorker from "../../webWorker/webWorker";
-import workerjs from "./worker.js";
 
 export default () => {
   
   const n = 800; // n is the maximum number of circles
   const canvas = useRef();
   const image = useRef();
-  const worker = new WebWorker(workerjs);
-  worker.addEventListener('message', onWorkerMessage);
   const [colour1, setColour1] = useState("#993300");
   const [colour2, setColour2] = useState("#a5c916");
   const [colour3, setColour3] = useState("#00AA66");
@@ -19,7 +15,6 @@ export default () => {
   const [rmin, setRmin] = useState(2);
   const [rmax, setRmax] = useState(8);
   const [defaultImageHidden, setDefaultImageHidden] = useState(false);
-  const [working, setWorking] = useState(false);
 
   function reloadClickHandler() {
     const LX = Math.round(image.current.naturalWidth);
@@ -29,43 +24,9 @@ export default () => {
     const ctx = canvas.current.getContext("2d");
     ctx.drawImage(image.current, 0, 0, LX, LY);
     const imageData = (ctx.getImageData(0, 0, LX, LY)).data;
-    const params = {
-      'imageData': imageData, 
-      'circleColours': [colour1, colour2, colour3, colour4],
-      'rmin': rmin, 
-      'rmax': rmax,
-      'n': n,
-      'LX': LX,
-      'LY': LY
-    }
-    worker.postMessage([params]);
-    setDefaultImageHidden(true);
-    setWorking(true);
-  }
-
-  function onWorkerMessage(event) {
-    var properties = event.data[0];
-    const circles = properties['circles'];
-    const LX = properties['LX'];
-    const LY = properties['LY'];
-    const svgNamespace = "http://www.w3.org/2000/svg"; 
-    const circleElements = circles.map((circle) => {
-      return React.createElement("circle", 
-      {
-          xmlns: svgNamespace,
-          cx: circle.cx,
-          cy: circle.cy,
-          r: circle.r,
-          fill: circle.colour
-      });
-    });
-    const svg = React.createElement("svg",
-    {
-      xmlns: svgNamespace,
-      width: LX,
-      height: LY
-    },
-    ...circleElements);
+    const circleColours = [colour1, colour2, colour3, colour4];
+    const circles = makeCircles(imageData, circleColours, rmin, rmax, n, LX, LY);
+    const svg = createReactSVG(circles, LX, LY);
     const svgString = ReactDOMServer.renderToString(svg);
     const blob = new Blob([svgString], {type:"image/svg+xml"});
     const url = URL.createObjectURL(blob);
@@ -76,7 +37,7 @@ export default () => {
         const ctx = canvas.current.getContext("2d");
         ctx.drawImage(img, 0, 0);
         URL.revokeObjectURL(url);
-        setWorking(false);
+        setDefaultImageHidden(true);
     }
     img.src = url;
   }
@@ -122,24 +83,20 @@ export default () => {
             className={style.control}
             type="color"
             value={colour1}
-            onChange={colour1ChangeHandler}
-            disabled={working}/>
+            onChange={colour1ChangeHandler}/>
           <input className={style.control}
             type="color"
             value={colour2}
-            onChange={colour2ChangeHandler}
-            disabled={working}/>
+            onChange={colour2ChangeHandler}/>
           <input
             className={style.control}
             type="color" value={colour3}
-            onChange={colour3ChangeHandler}
-            disabled={working}/>
+            onChange={colour3ChangeHandler}/>
           <input
             className={style.control}
             type="color"
             value={colour4}
-            onChange={colour4ChangeHandler}
-            disabled={working}/>
+            onChange={colour4ChangeHandler}/>
         </div>
         <div className={style.controlGroup}>
           <label>Min radius:</label>
@@ -150,8 +107,7 @@ export default () => {
             min="2"
             max="5"
             value={rmin}
-            onChange={rminChangeHandler}
-            disabled={working}/>
+            onChange={rminChangeHandler}/>
           <span className={style.control}>{rmin}</span>
         </div>
         <div className={style.controlGroup}>
@@ -163,16 +119,80 @@ export default () => {
               min="5"
               max="8"
               value={rmax}
-              onChange={rmaxChangeHandler}
-              disabled={working}/>
+              onChange={rmaxChangeHandler}/>
             <span className={style.control}>{rmax}</span>
         </div>
-        <button
-          onClick={reloadClickHandler}
-          disabled={working}>
-          {working ? "Working on it..." : "Run"}
-        </button>
+        <button onClick={reloadClickHandler}>Run</button>
       </div>
   </div>
   );
 };
+
+function createReactSVG(circles, LX, LY) {
+  const svgNamespace = "http://www.w3.org/2000/svg"; 
+  const circleElements = circles.map((circle) => {
+    return React.createElement("circle", 
+    {
+        xmlns: svgNamespace,
+        cx: circle.cx,
+        cy: circle.cy,
+        r: circle.r,
+        fill: circle.colour
+    });
+  });
+  return React.createElement("svg",
+  {
+    xmlns: svgNamespace,
+    width: LX,
+    height: LY
+  },
+  ...circleElements);
+}
+
+function makeCircles(imageData, circleColours, rmin, rmax, n, LX, LY) {
+  const circles = [];
+  const radii = [];
+  // First choose a set of n random radii and sort them. We use
+  // Math.random()*Math.random() to favour small circles.
+  for(let i = 0; i < n; i++){
+      const radius = rmin + (rmax - rmin)*(Math.random()*Math.random())
+      radii.push(radius);
+  }
+  radii.sort().reverse();
+  // Do our best to place the circles, larger ones first.
+  for(let i = 0; i < n; i++){
+      placeCircle(circles, radii[i], imageData, circleColours, LX, LY);
+  }
+  return circles;
+};
+
+function placeCircle(circles, radius, imageData, circleColours, LX, LY){
+  //The guard number: if we don't place a circle within this number of trials, we give up.
+  let guard = 500;
+  while(guard > 0){
+      // Pick a random position on the image.
+      const cx = randomIntFromInterval(0, LX-1);
+      const cy = randomIntFromInterval(0, LY-1);
+      const index = (cx+cy*LX)*4;
+      const red = imageData[index + 0];
+      const green = imageData[index + 1];
+      const blue = imageData[index + 2];
+      const average = (red + green + blue) / 3;
+      if(average < 255/2 && !circles.some((existingCircle) => overlapWith(cx, cy, radius, existingCircle.cx, existingCircle.cy, existingCircle.r))){
+          const circle = {'cx': cx,'cy': cy, 'r':radius, 'colour':circleColours[randomIntFromInterval(0,3)]};
+          circles.push(circle);
+          return;
+      }
+      guard -= 1;
+  }
+  //console.log("Guard reached");
+}
+
+function randomIntFromInterval(min, max){
+  return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+function overlapWith(cx1, cy1, r1, cx2, cy2, r2){
+  const d = Math.sqrt((cx1-cx2)*(cx1-cx2) + (cy1-cy2)*(cy1-cy2))
+  return d < r1 + r2;
+}

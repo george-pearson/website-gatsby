@@ -19,30 +19,13 @@ export default () => {
   const [defaultImageHidden, setDefaultImageHidden] = useState(false);
 
   const reloadClickHandler = () => {
-    const svgNamespace = "http://www.w3.org/2000/svg"; 
     const rmin = R * rho_min; // The minimum packing circle radius.
     const rmax = R * rho_max; // The maximum packing circle radius.
     const CX = svgWidth / 2; // The x-coordinate of centre of the large circle.
     const CY = svgHeight / 2; // The y-coordinate of centre of the large circle.
     const circleColours = [colour1, colour2, colour3, colour4];
     const circles = makeCircles(n, R, rmin, rmax, CX, CY, circleColours);
-    const circleElements = circles.map((circle) => {
-        return React.createElement("circle", 
-        {
-            xmlns: svgNamespace,
-            cx: circle.cx,
-            cy: circle.cy,
-            r: circle.r,
-            fill: circle.colour
-        });
-    });
-    const svg = React.createElement("svg",
-    {
-      xmlns: svgNamespace,
-      width: svgWidth,
-      height: svgHeight
-    },
-    ...circleElements);
+    const svg = createReactSVG(circles, svgWidth, svgHeight);
     const svgString = ReactDOMServer.renderToString(svg);
     const blob = new Blob([svgString], {type:"image/svg+xml"});
     const url = URL.createObjectURL(blob);
@@ -105,6 +88,27 @@ export default () => {
       </div>
   </div>
   )
+}
+
+function createReactSVG(circles, LX, LY) {
+  const svgNamespace = "http://www.w3.org/2000/svg"; 
+  const circleElements = circles.map((circle) => {
+    return React.createElement("circle", 
+    {
+        xmlns: svgNamespace,
+        cx: circle.cx,
+        cy: circle.cy,
+        r: circle.r,
+        fill: circle.colour
+    });
+  });
+  return React.createElement("svg",
+  {
+    xmlns: svgNamespace,
+    width: LX,
+    height: LY
+  },
+  ...circleElements);
 }
 
 function makeCircles(n, R, rmin, rmax, CX, CY, circleColours) {
