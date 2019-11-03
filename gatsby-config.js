@@ -11,8 +11,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Home | George Pearson`,
-        short_name: `Home`,
+        name: `George Pearson's Blog`,
+        short_name: `George's Blog`,
         start_url: `/`,
         background_color: `transparent`,
         theme_color: `#ebebe0`,
