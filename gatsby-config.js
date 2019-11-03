@@ -9,6 +9,18 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Home | George Pearson`,
+        short_name: `Home`,
+        start_url: `/`,
+        background_color: `transparent`,
+        theme_color: `#ebebe0`,
+        display: `standalone`,
+        icon: `static/icon.png`
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
