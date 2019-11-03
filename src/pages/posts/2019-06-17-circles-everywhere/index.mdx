@@ -1,5 +1,5 @@
 ---
-title:  "Circles Everywhere!"
+title: "Circles Everywhere!"
 subtitle: "Packing circles in a circle with JavaScript."
 date: "2019-06-17"
 image: "circlesInCircle.png"
@@ -12,12 +12,15 @@ I'm a big fan of Scalable Vector Graphics (SVGs). Other than retaining their qua
 
 In this post I show off some code to generate an SVG image of packing a set amount of randomly sized small circles into a larger one, similar to the image below.
 
-<CirclesInCircle style={{maxWidth: '600px', margin: 'auto', display: 'block'}} />
+<CirclesInCircle
+  style={{ maxWidth: "600px", margin: "auto", display: "block" }}
+/>
 
 Here's the code:
 
 ```javascript
-const svgWidth = 600, svgHeight = 600;
+const svgWidth = 600,
+  svgHeight = 600;
 const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 svg.setAttribute("width", svgWidth);
 svg.setAttribute("height", svgHeight);
@@ -29,73 +32,87 @@ const rho_min = 0.005; // rho_min is rmin/R, where rmin is the minimum packing c
 const rho_max = 0.05; // rho_max is rmax/R, where rmax is the maximum packing circle radius.
 const rmin = R * rho_min; // The minimum packing circle radius.
 const rmax = R * rho_max; // The maximum packing circle radius.
-const circleColours = ['#993300', '#a5c916', '#00AA66', '#FF9900'];
+const circleColours = ["#993300", "#a5c916", "#00AA66", "#FF9900"];
 const circles = makeCircles(); // Gets a list of small circle coordinates, radii and colours.
 
-for(let i = 0; i < circles.length; i++){
-    const circle = document.createElementNS(svg.namespaceURI, 'circle');
-    circle.setAttribute('cx', circles[i].cx);
-    circle.setAttribute('cy', circles[i].cy);
-    circle.setAttribute('r', circles[i].r);
-    circle.setAttribute('fill', circles[i].colour);
-    svg.appendChild(circle); // Add each circle in the list to the SVG.
+for (let i = 0; i < circles.length; i++) {
+  const circle = document.createElementNS(svg.namespaceURI, "circle");
+  circle.setAttribute("cx", circles[i].cx);
+  circle.setAttribute("cy", circles[i].cy);
+  circle.setAttribute("r", circles[i].r);
+  circle.setAttribute("fill", circles[i].colour);
+  svg.appendChild(circle); // Add each circle in the list to the SVG.
 }
-const svgDiv = document.querySelector('#myDiv');
+const svgDiv = document.querySelector("#myDiv");
 svgDiv.appendChild(svg); // Add SVG to page.
 
-function makeCircles(){
-    const circles = [];
-    const radii = [];
-    // First choose a set of n random radii and sort them. We use
-    // Math.random()*Math.random() to favour small circles.
-    for(let i = 0; i < n; i++){
-        const r = rmin + (rmax - rmin)*(Math.random()*Math.random())
-        radii.push(r);
-    }
-    radii.sort().reverse();
-    // Do our best to place the circles, larger ones first.
-    for(let i = 0; i < n; i++){
-        placeCircle(circles, radii[i]);
-    }
-    return circles;
+function makeCircles() {
+  const circles = [];
+  const radii = [];
+  // First choose a set of n random radii and sort them. We use
+  // Math.random()*Math.random() to favour small circles.
+  for (let i = 0; i < n; i++) {
+    const r = rmin + (rmax - rmin) * (Math.random() * Math.random());
+    radii.push(r);
+  }
+  radii.sort().reverse();
+  // Do our best to place the circles, larger ones first.
+  for (let i = 0; i < n; i++) {
+    placeCircle(circles, radii[i]);
+  }
+  return circles;
 }
 
-function placeCircle(circles, r){
-    //The guard number: if we don't place a circle within this number of trials, we give up.
-    let guard = 500;
-    while(guard > 0){
-        // Pick a random position, uniformly on the larger circle's interior.
-        const cr = R * Math.sqrt(Math.random());
-        const cphi = 2 * Math.PI * Math.random();
-        const cx = cr * Math.cos(cphi);
-        const cy = cr * Math.sin(cphi);
-        
-        if(cr + r < R){
-            // The circle fits inside the larger circle.
-            if(!circles.some(
-                (existingCircle) => overlapWith(CX + cx, CY + cy, r, existingCircle.cx, existingCircle.cy, existingCircle.r))
-            ){
-                // The circle doesn't overlap with any other small circles.
-                const circle = {'cx':CX + cx,'cy':CY + cy, 'r':r, 'colour':circleColours[randomIntFromInterval(0,3)]};
-                circles.push(circle); // Add the circle.
-                return;
-            }
-        }
-        guard -= 1;
+function placeCircle(circles, r) {
+  //The guard number: if we don't place a circle within this number of trials, we give up.
+  let guard = 500;
+  while (guard > 0) {
+    // Pick a random position, uniformly on the larger circle's interior.
+    const cr = R * Math.sqrt(Math.random());
+    const cphi = 2 * Math.PI * Math.random();
+    const cx = cr * Math.cos(cphi);
+    const cy = cr * Math.sin(cphi);
+
+    if (cr + r < R) {
+      // The circle fits inside the larger circle.
+      const overlaps = circles.some(existingCircle =>
+        overlapWith(
+          CX + cx,
+          CY + cy,
+          r,
+          existingCircle.cx,
+          existingCircle.cy,
+          existingCircle.r
+        )
+      );
+      if (!overlaps) {
+        // The circle doesn't overlap with any other small circles.
+        const circle = {
+          cx: CX + cx,
+          cy: CY + cy,
+          r: r,
+          colour: circleColours[randomIntFromInterval(0, 3)],
+        };
+        circles.push(circle); // Add the circle.
+        return;
+      }
     }
+    guard -= 1;
+  }
 }
 
-function randomIntFromInterval(min, max){
-    // Random int from min to max.
-    return Math.floor(Math.random()*(max-min+1)+min);
+function randomIntFromInterval(min, max) {
+  // Random int from min to max.
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function overlapWith(cx1, cy1, r1, cx2, cy2, r2){
-    // Do two circles overlap?
-    const d = Math.sqrt((cx1-cx2)*(cx1-cx2) + (cy1-cy2)*(cy1-cy2))
-    return d < r1 + r2;
+function overlapWith(cx1, cy1, r1, cx2, cy2, r2) {
+  // Do two circles overlap?
+  const d = Math.sqrt((cx1 - cx2) * (cx1 - cx2) + (cy1 - cy2) * (cy1 - cy2));
+  return d < r1 + r2;
 }
 ```
+
 And here's a half size interactive version with colour selectors:
 
 <CirclesTool />

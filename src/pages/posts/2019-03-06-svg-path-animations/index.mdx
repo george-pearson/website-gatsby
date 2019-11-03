@@ -1,11 +1,11 @@
 ---
-title:  "SVG Path Animations"
+title: "SVG Path Animations"
 subtitle: "A look into how to create SVG path animations using CSS transitions and a bit of JavaScript."
 date: "2019-03-06"
 image: "coffee.png"
 ---
 
-import LogoDrawself from '../../../components/posts/logoDrawself/logoDrawself';
+import LogoDrawself from "../../../components/posts/logoDrawself/logoDrawself";
 import Coffee from "../../../../static/coffee.inline.svg";
 import CoffeeDashed from "../../../components/posts/coffeeDashed/coffeeDashed";
 import CoffeeDrawself from "../../../components/posts/coffeeDrawself/coffeeDrawself";
@@ -18,6 +18,7 @@ import * as commonStyle from "../common.module.css";
 Hey that animation was pretty cool, right? Just click on him again to re-run it. Today's post is on how to create awesome SVG line animations like the one above.
 
 ## SVG Paths
+
 The SVG path format can seem rather cryptic:
 
 ```xml
@@ -31,51 +32,51 @@ The SVG path format can seem rather cryptic:
 In reality nobody sane edits path elements by hand, and the best way to change them is with the use of an SVG editor like <a class="blueLink" href="https://inkscape.org/">Inkscape</a>. I create my SVGs in Inkscape then cut out the "bloat elements" Inkscape adds that aren't needed.
 
 ## Single Path Animations
+
 We'll start with a simple single path SVG:
 
 <div className={commonStyle.halfWidthContainer}>
-    <div className={commonStyle.halfWidthLeft}>
-        <Coffee />
-    </div>
-    <div className={commonStyle.halfWidthRight}>
-        <CoffeeDashed />
-    </div>
+  <div className={commonStyle.halfWidthLeft}>
+    <Coffee />
+  </div>
+  <div className={commonStyle.halfWidthRight}>
+    <CoffeeDashed />
+  </div>
 </div>
 
 ```css
 .coffee-dashed path {
-    stroke-dasharray: 20 20;
-    stroke-dashoffset: 1547;
-    animation: coffee-dash 20s linear infinite;
+  stroke-dasharray: 20 20;
+  stroke-dashoffset: 1547;
+  animation: coffee-dash 20s linear infinite;
 }
 @keyframes coffee-dash {
-    100% {
-        stroke-dashoffset: 0;
-    }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 ```
 
-We can add dashes to an SVG path with the use of the `stroke-dasharray` property, the first number gives the length of the dashes and the second gives the length of the gaps. The `stroke-dashoffset` property specifies where the dasharray starts. By changing the `stroke-dashoffset` from the path length to 0 using a `@keyframes` animation we can move the dashes about (try clicking on the dashed mug). 
+We can add dashes to an SVG path with the use of the `stroke-dasharray` property, the first number gives the length of the dashes and the second gives the length of the gaps. The `stroke-dashoffset` property specifies where the dasharray starts. By changing the `stroke-dashoffset` from the path length to 0 using a `@keyframes` animation we can move the dashes about (try clicking on the dashed mug).
 
-
-Now imagine we made the dashes and gaps the length of the path, such that we only ever see one dash. To do this we increase the  `stroke-dasharray` values to the path length and we've got a coffee mug that draws itself:
+Now imagine we made the dashes and gaps the length of the path, such that we only ever see one dash. To do this we increase the `stroke-dasharray` values to the path length and we've got a coffee mug that draws itself:
 
 <CoffeeDrawself />
 
-
 ```css
 .coffee-drawself path {
-    stroke-dasharray: 1547 1547;
-    stroke-dashoffset: 1547;
-    animation: draw 15s linear infinite;
+  stroke-dasharray: 1547 1547;
+  stroke-dashoffset: 1547;
+  animation: draw 15s linear infinite;
 }
 @keyframes draw {
-    0% {
-        stroke-dashoffset: 1547;
-    }
-    75%, 100% {
-        stroke-dashoffset: 0; /* Pause for 75%-100% of animation */
-    }
+  0% {
+    stroke-dashoffset: 1547;
+  }
+  75%,
+  100% {
+    stroke-dashoffset: 0; /* Pause for 75%-100% of animation */
+  }
 }
 ```
 
@@ -95,31 +96,31 @@ To do multi-path animations we can reproduce what we did for single line animati
 ```javascript
 var cupcake = document.querySelector(".cupcake-drawself");
 var cupcakePaths = Array.from(cupcake.querySelectorAll("path"));
-var cupcakeAnimations = cupcakePaths.map(function(path){
-    var pathLength = path.getTotalLength();
-    var duration = Math.pow(pathLength, 0.5) * 0.03;
-    return {path, pathLength, duration};
+var cupcakeAnimations = cupcakePaths.map(function(path) {
+  var pathLength = path.getTotalLength();
+  var duration = Math.pow(pathLength, 0.5) * 0.03;
+  return { path, pathLength, duration };
 });
 
-function runCupcakeAnimations(){
-    // Initial conditions
-    cupcakeAnimations.forEach(function(animation){
-        animation.path.style.transition = "none"; // Clear previous transition => fast removal
-        animation.path.style.strokeDasharray = `${animation.pathLength} ${animation.pathLength}`;
-        animation.path.style.strokeDashoffset = animation.pathLength;
-        animation.path.getBoundingClientRect(); // Trigger reflow of each path
-    });
+function runCupcakeAnimations() {
+  // Initial conditions
+  cupcakeAnimations.forEach(function(animation) {
+    animation.path.style.transition = "none"; // Clear previous transition => fast removal
+    animation.path.style.strokeDasharray = `${animation.pathLength} ${animation.pathLength}`;
+    animation.path.style.strokeDashoffset = animation.pathLength;
+    animation.path.getBoundingClientRect(); // Trigger reflow of each path
+  });
 
-    // Triggering a reflow on first path so we animate from here
-    cupcakeAnimations[0].path.getBoundingClientRect();
+  // Triggering a reflow on first path so we animate from here
+  cupcakeAnimations[0].path.getBoundingClientRect();
 
-    // Run line animations
-    var begin = 0;
-    cupcakeAnimations.forEach(function(animation) {
-        animation.path.style.transition = `stroke-dashoffset ${animation.duration}s ${begin}s ease-in-out`;
-        animation.path.style.strokeDashoffset = "0";
-        begin += animation.duration + 0.1; // Slight 0.1s delay for drawing effect
-    });
+  // Run line animations
+  var begin = 0;
+  cupcakeAnimations.forEach(function(animation) {
+    animation.path.style.transition = `stroke-dashoffset ${animation.duration}s ${begin}s ease-in-out`;
+    animation.path.style.strokeDashoffset = "0";
+    begin += animation.duration + 0.1; // Slight 0.1s delay for drawing effect
+  });
 }
 
 cupcake.addEventListener("click", runCupcakeAnimations);
@@ -135,33 +136,33 @@ var cupcakeLines = Array.from(cupcakeFade.querySelectorAll(".line"));
 var cupcakeShades = Array.from(cupcakeFade.querySelectorAll(".shade"));
 var cupcakeFadePaths = [...cupcakeLines, ...cupcakeShades]; // Run shades last.
 
-var cupcakeFadeAnimations = cupcakeFadePaths.map(function(path){
-    var pathLength = path.getTotalLength();
-    var duration = Math.pow(pathLength, 0.5) * 0.03;
-    return {path, pathLength, duration};
+var cupcakeFadeAnimations = cupcakeFadePaths.map(function(path) {
+  var pathLength = path.getTotalLength();
+  var duration = Math.pow(pathLength, 0.5) * 0.03;
+  return { path, pathLength, duration };
 });
 
-function runCupcakeFadeAnimations(){
-    // Initial conditions
-    cupcakeFadeAnimations.forEach(function(animation){
-        animation.path.style.transition = "none"; // Clear previous transition => fast removal
-        animation.path.style.strokeDasharray = `${animation.pathLength} ${animation.pathLength}`;
-        animation.path.style.strokeDashoffset = animation.pathLength;
-        animation.path.style.fillOpacity = "0";
-        animation.path.getBoundingClientRect(); // Trigger reflow of each path
-    });
+function runCupcakeFadeAnimations() {
+  // Initial conditions
+  cupcakeFadeAnimations.forEach(function(animation) {
+    animation.path.style.transition = "none"; // Clear previous transition => fast removal
+    animation.path.style.strokeDasharray = `${animation.pathLength} ${animation.pathLength}`;
+    animation.path.style.strokeDashoffset = animation.pathLength;
+    animation.path.style.fillOpacity = "0";
+    animation.path.getBoundingClientRect(); // Trigger reflow of each path
+  });
 
-    // Triggering a reflow on first path so we animate from here
-    cupcakeFadeAnimations[0].path.getBoundingClientRect();
+  // Triggering a reflow on first path so we animate from here
+  cupcakeFadeAnimations[0].path.getBoundingClientRect();
 
-    // Run line animations
-    var begin = 0;
-    cupcakeFadeAnimations.forEach(function(animation) {
-        animation.path.style.transition = `stroke-dashoffset ${animation.duration}s ${begin}s ease-in-out, fill-opacity ${animation.duration}s ${begin}s ease-in-out`;
-        animation.path.style.strokeDashoffset = "0";
-        animation.path.style.fillOpacity = "1.0";
-        begin += animation.duration + 0.1; // Slight 0.1s delay for drawing effect
-    });
+  // Run line animations
+  var begin = 0;
+  cupcakeFadeAnimations.forEach(function(animation) {
+    animation.path.style.transition = `stroke-dashoffset ${animation.duration}s ${begin}s ease-in-out, fill-opacity ${animation.duration}s ${begin}s ease-in-out`;
+    animation.path.style.strokeDashoffset = "0";
+    animation.path.style.fillOpacity = "1.0";
+    begin += animation.duration + 0.1; // Slight 0.1s delay for drawing effect
+  });
 }
 
 cupcakeFade.addEventListener("click", runCupcakeFadeAnimations);
@@ -170,5 +171,6 @@ cupcakeFade.addEventListener("click", runCupcakeFadeAnimations);
 As always the full code for all these animations is on my <a href="https://github.com/george-pearson" class="blueLink">GitHub</a>.
 
 ## Further reading
-* <a class="blueLink" href="https://jakearchibald.com/2013/animated-line-drawing-svg/">Jake Archibald's blog post on this in 2013!</a>
-* <a class="blueLink" href="https://css-tricks.com/svg-line-animation-works/">CSS-Tricks on SVG line animation</a>
+
+- <a class="blueLink" href="https://jakearchibald.com/2013/animated-line-drawing-svg/">Jake Archibald's blog post on this in 2013!</a>
+- <a class="blueLink" href="https://css-tricks.com/svg-line-animation-works/">CSS-Tricks on SVG line animation</a>

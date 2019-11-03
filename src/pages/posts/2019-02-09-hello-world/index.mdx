@@ -1,5 +1,5 @@
 ---
-title:  "Hello World!"
+title: "Hello World!"
 subtitle: "My first blog post on this site. I go over how I made my website and what I learnt along the way."
 date: "2019-02-09"
 ---
@@ -14,43 +14,49 @@ I've finally shipped! After about a month of what seems like going backwards and
 So you want to know how I made this site right? Well initially I was thinking of using what I know from work - C# <a href="https://dotnet.microsoft.com/apps/aspnet/mvc" class="blueLink">ASP.NET MVC</a>. But I figured it would be better if I learnt something new and all that server side setup and maintenance seemed like a pain. After a recommendation from a friend I found that GitHub offers **free hosting** for websites running <a class="blueLink" href="https://pages.github.com/">GitHub Pages</a>. This seemed perfect for what I needed and no server side hassle! From GitHub Pages I was directed to <a href="https://jekyllrb.com/" class="blueLink">Jekyll</a>. Jekyll is an amazing open source blogging tool, which among other things has inbuilt support for <a href="https://daringfireball.net/projects/markdown/" class="blueLink">Markdown</a> making writing blog posts a breeze[^1].
 
 Here's an example of the JavaScript markdown which uses <a href="https://pypi.org/project/Pygments/" class="blueLink">Pygments</a>:
+
 ```javascript
 (function() {
-    console.log("Hello World! 😊");
+  console.log("Hello World! 😊");
 })();
 ```
 
 Jekyll also has a great HTML templating through use of <a href="https://jekyllrb.com/docs/includes/" class="blueLink">includes</a> and <a href="https://jekyllrb.com/docs/step-by-step/04-layouts/" class="blueLink">layouts</a> which help keep your project well structured.
 
 ## Sass and Gulp
+
 At work we predominantly use CSS libraries like <a href="https://getbootstrap.com/" class="blueLink">Bootstrap</a>, but one thing I decided fairly early on was that I was going to develop all the CSS myself to improve my front-end skills. After a bit of online research I decided I was going to use the <a href="https://sass-lang.com/" class="blueLink">Sass</a> CSS templating language. Here's the Sass for those crazy blue links:
+
 ```scss
 $color--skyblue: #00c1c1;
 $color--white: #fff;
 
 %transition-duration {
-    transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 
-.blueLink, %blueLink {
-    color: $color--skyblue;
-    text-decoration: none;
-    background-image: linear-gradient(
-        to top,
-        $color--skyblue,
-        $color--skyblue 50%,
-        transparent 50%,
-        transparent);
-    background-position: 0% 0%;
-    background-size: 100% 200%;
-    @extend %transition-duration;
+.blueLink,
+%blueLink {
+  color: $color--skyblue;
+  text-decoration: none;
+  background-image: linear-gradient(
+    to top,
+    $color--skyblue,
+    $color--skyblue 50%,
+    transparent 50%,
+    transparent
+  );
+  background-position: 0% 0%;
+  background-size: 100% 200%;
+  @extend %transition-duration;
 
-    &:hover{
-        color: $color--white;
-        background-position: 0 100%;
-    }
+  &:hover {
+    color: $color--white;
+    background-position: 0 100%;
+  }
 }
 ```
+
 Sass makes your CSS code simpler with things like variables `$color--skyblue`, placeholder selectors `%transition-duration` and parent selectors `&:hover`. Essentially Sass means you don't have to repeat yourself so often!
 
 While investigating Sass I was directed to <a href="https://gulpjs.com/" class="blueLink">Gulp</a> a DevOps build tool. Gulp essentially allows you to automate command line tools for things like:
@@ -61,27 +67,37 @@ While investigating Sass I was directed to <a href="https://gulpjs.com/" class="
 - Reloading your browser once a build is complete.
 
 This makes development a lot easier and faster. Here's an example of a gulp command that compiles a Sass file and minifies the outputed CSS:
+
 ```javascript
 /**
  * Compile .scss files.
  */
-gulp.task("sass", function () {
-    return gulp.src("_scss/main.scss")
-        .pipe(sass().on("error", sass.logError))
-        .pipe(cssnano())
-        .pipe(rename("main.min.css"))
-        .pipe(gulp.dest("assets/css/"));
+gulp.task("sass", function() {
+  return gulp
+    .src("_scss/main.scss")
+    .pipe(sass().on("error", sass.logError))
+    .pipe(cssnano())
+    .pipe(rename("main.min.css"))
+    .pipe(gulp.dest("assets/css/"));
 });
 ```
 
 ## Photos
+
 <div className={commonStyle.halfWidthContainer}>
-    <div className={commonStyle.halfWidthLeft}>
-        <img style={{width: "100%"}} src={sunset} alt="sunset" />
-    </div>
-    <div className={commonStyle.halfWidthRight}>
-        <p>One thing I thought I'd share on this blog is some <a class="blueLink" href="/Photos">photos</a> I've taken on my travels. In the future I'd like to develop that area into a gallery of some kind. The photos have been compressed using <a class="blueLink" href="https://squoosh.app/">Squoosh</a> making them take up less space and load quickly (hopefully).</p>
-    </div>
+  <div className={commonStyle.halfWidthLeft}>
+    <img style={{ width: "100%" }} src={sunset} alt="sunset" />
+  </div>
+  <div className={commonStyle.halfWidthRight}>
+    <p>
+      One thing I thought I'd share on this blog is
+      some <a class="blueLink" href="/Photos">photos</a> I've
+      taken on my travels. In the future I'd like to develop that
+      area into a gallery of some kind. The photos have been compressed
+      using <a class="blueLink" href="https://squoosh.app/">Squoosh</a> making
+      them take up less space and load quickly (hopefully).
+    </p>
+  </div>
 </div>
 
 ## Conclusion
