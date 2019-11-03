@@ -1,4 +1,3 @@
-
 module.exports = {
   pathPrefix: "/website-gatsby",
   siteMetadata: {
@@ -22,6 +21,7 @@ module.exports = {
         icon: `static/icon.png`
       },
     },
+    'gatsby-plugin-offline',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
