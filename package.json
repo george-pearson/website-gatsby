@@ -1,9 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
-  "version": "0.1.0",
-  "license": "MIT",
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "A blog about software development, science, and other musings by George Pearson.",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -39,9 +37,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/george-pearson/website-gatsby"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/george-pearson/website-gatsby/issues"
   }
 }
