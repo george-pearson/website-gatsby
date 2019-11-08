@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: "/website-gatsby",
   siteMetadata: {
     author: `George Pearson`,
     siteDescription: `A blog about software development, science, and other musings by George Pearson.`,
