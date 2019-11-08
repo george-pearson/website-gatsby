@@ -29,13 +29,13 @@ export default ({ page, post }) => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={pageImage} />
-      {process.env === "production" && (
+      {process.env.NODE_ENV === "production" && (
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=UA-134616286-1"
         />
       )}
-      {process.env === "production" && (
+      {process.env.NODE_ENV === "production" && (
         <script>
           {`
           window.dataLayer = window.dataLayer || [];
