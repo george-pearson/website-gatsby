@@ -1,0 +1,72 @@
+---
+title: "From Ruby to React"
+subtitle: "My experience migrating from Jekyll to Gatsby."
+date: "2019-11-10"
+image: "/reactLogo.png"
+---
+
+import offlineApp from "../../../../static/offlineApp.png";
+import * as commonStyle from "../common.module.css";
+
+I recently migrated my blog from one static site generator, <a class="blueLink" href="https://jekyllrb.com/">Jekyll</a>,
+to another, <a class="blueLink" href="https://www.gatsbyjs.org/">Gatsby</a>. 
+A static site generator is a tool that allows you to generate static HTML from templates
+which can then easily be served up to clients making a simple website. Here are a few
+reasons I did this:
+
+- Jekyll runs using <a class="blueLink" href="https://www.ruby-lang.org/en/">Ruby</a>, which is pretty old
+and <a class="blueLink" href="https://insights.stackoverflow.com/survey/2019#technology-_-programming-scripting-and-markup-languages">not that popular</a>.
+- Gatsby runs using <a class="blueLink" href="https://nodejs.org/">Node</a> which is more modern and well supported.
+- Gatsby uses <a class="blueLink" href="https://reactjs.org/">React</a> a popular UI framework I wanted to learn.
+- Gatsby has many easy to use plugins that are available on 
+<a class="blueLink" href="https://www.npmjs.com/">npm</a>.
+- Gatsby uses <a class="blueLink" href="https://webpack.js.org/">webpack</a> an
+easy to use build tool which doesn't require build scripts (I was using <a class="blueLink" href="https://gulpjs.com/">Gulp</a> previously).
+
+## Initial setup
+
+One of the immediate benefits I found was how easy it is to get Gatsby up and
+running compared to Jekyll (webpack is great!).
+Additionally <a class="blueLink" href="https://webpack.js.org/guides/code-splitting/">Code Splitting</a> allowed
+me to simplify my old sites <a class="blueLink" href="https://sass-lang.com/">Sass</a> into
+smaller chunks of plain old CSS.
+
+## Offline support
+
+<div className={commonStyle.halfWidthContainer}>
+  <div className={commonStyle.halfWidthLeft}>
+    <img style={{marginTop: '20px'}} height="320px" width="180px" src={offlineApp} alt="offlineApp" />
+  </div>
+  <div className={commonStyle.halfWidthRight}>
+    <p>
+      Adding offline support was super easy! There are just two simple <a class="blueLink" href="https://www.gatsbyjs.org/docs/add-offline-support-with-a-service-worker/">Gatsby plugins</a> to install and you're away. This allows users to download your site content as an application which can be viewed offline. Try it out on mobile - its pretty cool! 😃
+    </p>
+  </div>
+</div>
+
+## React and MDX 
+
+I wanted to convert the various JavaScript tools I made in previous blog posts into reusable 
+React <a class="blueLink" href="https://reactjs.org/docs/react-component.html">components</a>, written
+in JSX (the React template language). To add these components to my markdown posts I
+used <a class="blueLink" href="https://mdxjs.com/">MDX</a> a markdown extension format that includes
+JSX. This worked relatively well and I was able to refactor all of my JavaScript code to React,
+learning lots of React concepts!
+
+## Other stuff
+
+As well as the migration I also:
+
+- Added a slide bar for mobile devices making the mobile experience a lot nicer.
+- Simplified all SVGs and used <a class="blueLink" href="https://github.com/jacobmischka/gatsby-plugin-react-svg">gatsby-plugin-react-svg</a> to
+add them into JSX easily.
+- Improved the home page paginator to have page numbers, rather than just a "Next Page" button.
+
+## All still on GitHub
+
+Finally all of my website code is still hosted on <a class="blueLink" href="https://pages.github.com/">GitHub pages</a>, free for anyone to look at!
+
+
+
+
+
