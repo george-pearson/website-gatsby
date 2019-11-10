@@ -14,12 +14,14 @@ export default ({ page, post }) => {
   const description = post ? post.frontmatter.subtitle : siteDescription;
   const title = `${pageTitle} | ${author}`;
   const pageImage =
-    post && post.frontmatter.image ? post.frontmatter.image : logoImage;
+    post && post.frontmatter.image ? `${siteUrl}${post.frontmatter.image}` : logoImage;
+  const url = 
+    post && post.fields.slug ? `${siteUrl}${post.fields.slug}` : siteUrl;
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta property="og:url" content={siteUrl} />
+      <meta property="og:url" content={url} />
       <meta property="og:site_name" content={siteUrl} />
       <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
