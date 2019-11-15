@@ -11,9 +11,9 @@ export default ({ navButtonClickHandler, show }) => {
     <header className={headerClass}>
       <nav className={style.navBar}>
         <Link to="/">
-          <Logo className={style.logo} />
+          <Logo aria-label="home" className={style.logo} />
         </Link>
-        <button className={style.navButton} onClick={navButtonClickHandler}>
+        <button aria-label="navigation button" className={style.navButton} onClick={navButtonClickHandler}>
           <FontAwesomeIcon
             className={style.navButtonIcon}
             icon={faBars}

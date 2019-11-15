@@ -19,6 +19,7 @@ export default ({ page, post }) => {
     post && post.fields.slug ? `${siteUrl}${post.fields.slug}` : siteUrl;
   return (
     <Helmet>
+      <html lang="en" />
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta property="og:url" content={url} />

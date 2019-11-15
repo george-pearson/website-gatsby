@@ -15,6 +15,7 @@ export default () => {
     <footer className={style.footer}>
       <div className={style.socialIcons}>
         <a
+          aria-label="GitHub"
           className={style.socialIconLink}
           href="https://github.com/george-pearson"
         >
@@ -25,6 +26,7 @@ export default () => {
           />
         </a>
         <a
+          aria-label="Linkedin"
           className={style.socialIconLink}
           href="https://linkedin.com/in/george-pearson-27244a30"
         >
@@ -35,6 +37,7 @@ export default () => {
           />
         </a>
         <a
+          aria-label="Twitter"
           className={style.socialIconLink}
           href={`https://twitter.com/${twitterUsername}`}
         >
@@ -45,6 +48,7 @@ export default () => {
           />
         </a>
         <a
+          aria-label="Email"
           className={style.socialIconLink}
           href="mailto:george-pearson.business@outlook.com"
         >

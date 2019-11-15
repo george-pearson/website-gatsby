@@ -17,7 +17,7 @@ export default ({ currentPage, numPages }) => {
       <ul className={style.paginatorList}>
         {!isFirst && (
           <li className={style.paginatorListItem}>
-            <Link className={style.paginatorLink} to={prevPage}>
+            <Link aria-label="previous page" className={style.paginatorLink} to={prevPage}>
               <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
             </Link>
           </li>
@@ -38,7 +38,7 @@ export default ({ currentPage, numPages }) => {
         ))}
         {!isLast && (
           <li className={style.paginatorListItem}>
-            <Link className={style.paginatorLink} to={`/${nextPage}`}>
+            <Link aria-label="next page" className={style.paginatorLink} to={`/${nextPage}`}>
               <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
             </Link>
           </li>
