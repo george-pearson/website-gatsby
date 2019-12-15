@@ -113,8 +113,9 @@ export default () => {
           />
         </div>
         <div className={style.controlGroup}>
-          <label>Min radius:</label>
+          <label htmlFor="minRadius">Min radius:</label>
           <input
+            id="minRadius"
             className={style.control}
             type="range"
             step="0.25"
@@ -126,8 +127,9 @@ export default () => {
           <span className={style.control}>{rmin}</span>
         </div>
         <div className={style.controlGroup}>
-          <label>Max radius:</label>
+          <label htmlFor="maxRadius">Max radius:</label>
           <input
+            id="maxRadius"
             className={style.control}
             type="range"
             step="0.25"

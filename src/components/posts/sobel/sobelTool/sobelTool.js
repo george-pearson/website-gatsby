@@ -65,8 +65,9 @@ export default () => {
       {imageSelected && (
         <div>
           <div className={style.saturation}>
-            <label>Saturation:</label>
+            <label htmlFor="saturation">Saturation:</label>
             <input
+              id="saturation"
               type="range"
               step="0.01"
               min="0"
