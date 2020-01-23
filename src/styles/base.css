@@ -5,6 +5,7 @@ body, html {
     font-family: 'Alegreya Sans SC', sans-serif;
     font-weight: 300;
     font-size: 1.1rem;
+    color: var(--darkgrey);
 }
 
 p {
