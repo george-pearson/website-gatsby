@@ -5,7 +5,8 @@ body, html {
     font-family: 'Alegreya Sans SC', sans-serif;
     font-weight: 300;
     font-size: 1.1rem;
-    color: var(--darkgrey);
+    color: var(--color-text);
+    background-color: var(--color-bg);
 }
 
 p {
@@ -15,9 +16,9 @@ p {
 }
 
 .blueLink, .footnote-ref, .footnote-backref {
-    color: var(--skyblue);
+    color: var(--color-primary);
     text-decoration: none;
-    background-image: linear-gradient(to top, var(--skyblue), var(--skyblue) 50%, transparent 50%, transparent);
+    background-image: linear-gradient(to top, var(--color-primary), var(--color-primary) 50%, transparent 50%, transparent);
     background-position: 0% 0%;
     background-size: 100% 200%;
     transition-duration: 0.5s;

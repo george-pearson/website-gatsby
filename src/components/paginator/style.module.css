@@ -14,12 +14,13 @@
 
 .paginatorLink, .paginatorLinkActive {
     text-decoration: none;
-    color: var(--skyblue);
+    color: var(--color-primary);
     display: block;
     padding: 0.5rem 0.75rem;
 }
 
 .paginatorLinkActive{
-    background-color: var(--grey);
+    background-color: var(--color-primary);
+    color: var(--color-bg);
     border-radius: 0.5rem;
 }

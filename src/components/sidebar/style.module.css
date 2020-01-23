@@ -7,7 +7,7 @@
 
 .sidebar, .sidebarOpen {
     height: 100%;
-    background-color: var(--darkgrey);
+    background-color: var(--color-tertiary);
     box-shadow: 1px 0px 7px rgba(0,0,0,0.5);
     width: 50%;
     max-width: 15rem;
@@ -28,7 +28,7 @@
 
 .sidebarItem {
     font-size: 1.5rem;
-    color: var(--skyblue);
+    color: var(--color-primary);
     padding: 0.5rem;
     text-decoration: none;
     cursor: pointer;
@@ -36,7 +36,8 @@
 }
 
 .sidebarItem:hover {
-    background-color: var(--grey);
+    background-color: var(--color-primary);
+    color: var(--color-tertiary);
 }
 
 @media(min-width: 1023px){

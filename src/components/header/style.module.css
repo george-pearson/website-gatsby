@@ -6,7 +6,7 @@
 }
 
 .header, .headerClosed {
-    background-color: var(--lightgrey);
+    background-color: var(--color-tertiary);
     position: fixed;
     top: 0;
     width: 100%;
@@ -31,14 +31,15 @@
 .navBarItem {
     font-size: 1.2rem;
     padding: 1.563rem 1rem;
-    color: var(--skyblue);
+    color: var(--color-primary);
     text-decoration: none;
     cursor: pointer;
     transition-duration: 0.5s;
 }
 
 .navBarItem:hover {
-    background: var(--grey);
+    background: var(--color-primary);
+    color: var(--color-tertiary);
 }
 
 .navButton {
@@ -47,15 +48,16 @@
     border: none;
     width: 4.5rem;
     height: 4.5rem;
-	padding: 0;
-	cursor: pointer;
+    padding: 0;
+    cursor: pointer;
     margin-left: auto;
-    color: var(--darkgrey);
+    color: var(--color-secondary);
     transition-duration: 0.5s;
 }
  
 .navButton:hover {
-    background: var(--grey);
+    background: var(--color-secondary);
+    color: var(--color-tertiary);
 }
  
 .navButtonIcon {

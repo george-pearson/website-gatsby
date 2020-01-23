@@ -13,7 +13,7 @@
     max-width: 20em;
     border-radius: 50%;
     padding: 0.25em;
-    border: 2px solid var(--lightgrey);
+    border: 2px solid var(--color-tertiary);
 }
 
 .aboutText {

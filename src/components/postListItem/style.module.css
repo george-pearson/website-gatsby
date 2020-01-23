@@ -4,7 +4,7 @@
 }
 
 .postListItem:hover {
-    background: var(--lightgrey);
+    background: var(--color-tertiary);
     transition-duration: 0.5s;
 }
 
@@ -13,7 +13,7 @@
     text-decoration: none;
     max-width: 700px;
     margin: 0 auto;
-    color: var(--skyblue);
+    color: var(--color-primary);
 }
 
 .postTitle {
@@ -26,7 +26,7 @@
 }
 
 .postSubtitle {
-    color: var(--darkgrey);
+    color: var(--color-text);
 }
 
 .postImage {

@@ -1,5 +1,5 @@
 .footer {
-    background-color: var(--lightgrey);
+    background-color: var(--color-tertiary);
     padding: 1rem 0;
     font-size: 1.2rem;
     text-align: center;
@@ -16,11 +16,11 @@
 }
 
 .socialIcon {
-    color: var(--darkgrey);
+    color: var(--color-secondary);
     height: 100%;
     transition-duration: 0.5s;
 }
 
 .socialIcon:hover {
-    color: var(--skyblue);
+    color: var(--color-primary);
 }
