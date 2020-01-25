@@ -9,6 +9,10 @@ import Sunset from "../../../static/photos/Sunset.jpg";
 import Rockpools from "../../../static/photos/Rockpools.jpg";
 import Peninsula from "../../../static/photos/Peninsula.jpg";
 import Beach from "../../../static/photos/Beach.jpg";
+import Alpine from "../../../static/photos/Alpine.jpg";
+import Castle from "../../../static/photos/Castle.jpg";
+import Door from "../../../static/photos/Door.jpg";
+import Forest from "../../../static/photos/Forest.jpg";
 
 export default class Photos extends React.Component {
   render() {
@@ -75,6 +79,26 @@ export default class Photos extends React.Component {
             <div>
               <a href={Beach}>
                 <img className={style.galleryImage} src={Beach} alt="Beach" />
+              </a>
+            </div>
+            <div>
+              <a href={Alpine}>
+                <img className={style.galleryImage} src={Alpine} alt="Alpine" />
+              </a>
+            </div>
+            <div>
+              <a href={Castle}>
+                <img className={style.galleryImage} src={Castle} alt="Castle" />
+              </a>
+            </div>
+            <div>
+              <a href={Door}>
+                <img className={style.galleryImage} src={Door} alt="Door" />
+              </a>
+            </div>
+            <div>
+              <a href={Forest}>
+                <img className={style.galleryImage} src={Forest} alt="Forest" />
               </a>
             </div>
           </div>
