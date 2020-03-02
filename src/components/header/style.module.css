@@ -51,12 +51,12 @@
     padding: 0;
     cursor: pointer;
     margin-left: auto;
-    color: var(--color-secondary);
+    color: var(--color-primary);
     transition-duration: 0.5s;
 }
  
 .navButton:hover {
-    background: var(--color-secondary);
+    background: var(--color-primary);
     color: var(--color-tertiary);
 }
  
