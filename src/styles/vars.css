@@ -1,13 +1,11 @@
 :root {
     --skyblue: #00a3a3;
-    --darkblue: #09616c;
     --darkgrey: #696969;
     --lightgrey: #ebebe0;
     --white: #ffffff;
 
     --color-text: var(--darkgrey);
     --color-bg: var(--white);
-    --color-subheading: var(--darkblue);
     --color-primary: var(--skyblue);
     --color-secondary: var(--darkgrey);
     --color-tertiary: var(--lightgrey);
