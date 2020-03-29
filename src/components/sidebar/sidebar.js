@@ -4,7 +4,7 @@ import Logo from "../../../static/logo.inline.svg";
 import { Link } from "gatsby";
 import ColourThemeToggler from "../colourThemeToggler/colourThemeToggler";
 
-export default ({ show }) => {
+export default ({ show, theme, toggleTheme}) => {
   return (
     <div className={show ? style.sidebarOpen : style.sidebar}>
       <Logo className={style.logo} />
@@ -20,7 +20,7 @@ export default ({ show }) => {
         </Link>
       </nav>
       <div className={style.sideBarColourThemeToggler}>
-        <ColourThemeToggler />
+        <ColourThemeToggler theme={theme} toggleTheme={toggleTheme}/>
       </div>
     </div>
   );

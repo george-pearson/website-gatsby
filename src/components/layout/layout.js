@@ -4,6 +4,7 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import Sidebar from "../sidebar/sidebar";
 import Backdrop from "../backdrop/backdrop";
+import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import * as style from "./style.module.css";
 
 export default ({ page, post, children }) => {
@@ -36,8 +37,14 @@ export default ({ page, post, children }) => {
   return (
     <div>
       <Head page={page} post={post} />
-      <Header show={showHeader} navButtonClickHandler={navButtonClickHandler} />
-      <Sidebar show={sidebarOpen} />
+      <ThemeToggler>
+        {({ theme, toggleTheme }) => (
+        <div>
+          <Header show={showHeader} navButtonClickHandler={navButtonClickHandler} theme={theme} toggleTheme={toggleTheme}/>
+          <Sidebar show={sidebarOpen} theme={theme} toggleTheme={toggleTheme}/>
+        </div>
+        )}
+      </ThemeToggler>
       {sidebarOpen && <Backdrop backdropClickHandler={backdropClickHandler} />}
       <div className={style.fixedFooterWrapper}>
         <main className={style.main}>{children}</main>

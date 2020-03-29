@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import ColourThemeToggler from "../colourThemeToggler/colourThemeToggler";
 
-export default ({ navButtonClickHandler, show }) => {
+export default ({ navButtonClickHandler, show, theme, toggleTheme}) => {
   const headerClass = show ? style.header : style.headerClosed;
   return (
     <header className={headerClass}>
@@ -33,7 +33,7 @@ export default ({ navButtonClickHandler, show }) => {
           </Link>
         </div>
         <div className={style.sideBarColourThemeToggler}>
-          <ColourThemeToggler />
+          <ColourThemeToggler theme={theme} toggleTheme={toggleTheme}/>
         </div>
       </nav>
     </header>
