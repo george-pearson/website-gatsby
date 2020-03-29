@@ -4,6 +4,7 @@ import * as style from "./style.module.css";
 import { Link } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import ColourThemeToggler from "../colourThemeToggler/colourThemeToggler";
 
 export default ({ navButtonClickHandler, show }) => {
   const headerClass = show ? style.header : style.headerClosed;
@@ -30,6 +31,9 @@ export default ({ navButtonClickHandler, show }) => {
           <Link to="/photos" className={style.navBarItem}>
             Photos
           </Link>
+        </div>
+        <div className={style.sideBarColourThemeToggler}>
+          <ColourThemeToggler />
         </div>
       </nav>
     </header>

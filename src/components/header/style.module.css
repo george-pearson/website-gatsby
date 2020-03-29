@@ -64,9 +64,18 @@
     margin: auto;
 }
 
+.sideBarColourThemeToggler {
+    display: none;
+    padding: 0.5rem;
+}
+
 @media (min-width: 1023px){
     .navBarMenu {
         display: flex;
+    }
+
+    .sideBarColourThemeToggler {
+        display: block;
     }
 
     .navButton {
