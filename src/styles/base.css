@@ -1,3 +1,19 @@
+body {
+    --color-text: var(--darkgrey);
+    --color-bg: var(--white);
+    --color-primary: var(--skyblue);
+    --color-secondary: var(--darkgrey);
+    --color-tertiary: var(--lightgrey);
+}
+
+body.dark {
+    --color-text: var(--white);
+    --color-bg: var(--darkblue);
+    --color-primary: var(--skyblue);
+    --color-secondary: var(--white);
+    --color-tertiary: var(--ldarkblue);
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -13,6 +29,18 @@ p {
     margin: 0;
     padding: 0;
     line-height: 1.5;
+}
+
+button {
+    color: var(--white);
+    background-color: var(--color-primary);
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 1px solid var(--darkgrey);
+    display: inline-block;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
 }
 
 .blueLink, .footnote-ref, .footnote-backref {

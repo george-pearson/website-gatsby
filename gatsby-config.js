@@ -20,7 +20,7 @@ module.exports = {
         icon: `static/icon.png`,
       },
     },
-    "gatsby-plugin-offline",
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -29,7 +29,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
           include: /\.inline\.svg$/,
@@ -38,5 +38,6 @@ module.exports = {
     },
     `gatsby-plugin-mdx`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-dark-mode`,
   ],
 };

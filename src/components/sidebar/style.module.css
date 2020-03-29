@@ -26,7 +26,18 @@
     transform: translateX(0);
 }
 
-.sidebarItem {
+@media(min-width: 1023px){
+    .sidebarOpen {
+        transform: translateX(-110%);
+    }
+}
+
+.sidebarNav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebarNavItem {
     font-size: 1.5rem;
     color: var(--color-primary);
     padding: 0.5rem;
@@ -35,13 +46,11 @@
     transition-duration: 0.5s;
 }
 
-.sidebarItem:hover {
+.sidebarNavItem:hover {
     background-color: var(--color-primary);
     color: var(--color-tertiary);
 }
 
-@media(min-width: 1023px){
-    .sidebarOpen {
-        transform: translateX(-110%);
-    }
+.sideBarColourThemeToggler {
+    padding: 0.5rem;
 }
