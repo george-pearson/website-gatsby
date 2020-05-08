@@ -18,11 +18,12 @@ export default () => {
   function reloadClickHandler() {
     const LX = Math.round(image.current.naturalWidth);
     const LY = Math.round(image.current.naturalHeight);
-    canvas.current.width = LX;
-    canvas.current.height = LY;
-    const ctx = canvas.current.getContext("2d");
-    ctx.drawImage(image.current, 0, 0, LX, LY);
-    const imageData = ctx.getImageData(0, 0, LX, LY).data;
+    const inMemoryCanvas = document.createElement('canvas');
+    inMemoryCanvas.width = LX;
+    inMemoryCanvas.height = LY;
+    const inMemoryCtx = inMemoryCanvas.getContext("2d");
+    inMemoryCtx.drawImage(image.current, 0, 0, LX, LY);
+    const imageData = inMemoryCtx.getImageData(0, 0, LX, LY).data;
     const circleColours = [colour1, colour2, colour3, colour4];
     const circles = makeCircles(
       imageData,
