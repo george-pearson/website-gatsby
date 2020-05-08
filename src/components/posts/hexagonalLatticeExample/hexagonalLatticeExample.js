@@ -17,9 +17,11 @@ export default () => {
   }
 
   return (
-    <HexagonalLatticeExampleSvg
+    <div className={style.container}>
+      <HexagonalLatticeExampleSvg
       className={style.hexagonalLatticeExample}
       onClick={onClickHandler}
-    />
+      />
+    </div>
   );
 };

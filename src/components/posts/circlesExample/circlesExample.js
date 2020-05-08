@@ -17,9 +17,11 @@ export default () => {
   }
 
   return (
-    <CirclesExampleSvg
-      className={style.circlesExample}
-      onClick={onClickHandler}
-    />
+    <div className={style.container}>
+      <CirclesExampleSvg
+        className={style.circlesExample}
+        onClick={onClickHandler}
+      />
+    </div>
   );
 };

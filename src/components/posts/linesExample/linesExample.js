@@ -17,6 +17,8 @@ export default () => {
   }
 
   return (
-    <LinesExampleSvg className={style.linesExample} onClick={onClickHandler} />
+    <div className={style.container}>
+      <LinesExampleSvg className={style.linesExample} onClick={onClickHandler} />
+    </div>
   );
 };
