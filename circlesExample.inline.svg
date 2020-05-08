@@ -1,45 +1,45 @@
-<svg width="600" height="400">
+<svg width="460" height="400">
     <g class="circle1">
-        <circle cx="300" cy="200" r="10"></circle>
-        <circle cx="300" cy="200" r="20"></circle>
-        <circle cx="300" cy="200" r="30"></circle>
-        <circle cx="300" cy="200" r="40"></circle>
-        <circle cx="300" cy="200" r="50"></circle>
-        <circle cx="300" cy="200" r="60"></circle>
-        <circle cx="300" cy="200" r="70"></circle>
-        <circle cx="300" cy="200" r="80"></circle>
-        <circle cx="300" cy="200" r="90"></circle>
-        <circle cx="300" cy="200" r="100"></circle>
-        <circle cx="300" cy="200" r="110"></circle>
-        <circle cx="300" cy="200" r="120"></circle>
-        <circle cx="300" cy="200" r="130"></circle>
-        <circle cx="300" cy="200" r="140"></circle>
-        <circle cx="300" cy="200" r="150"></circle>
-        <circle cx="300" cy="200" r="160"></circle>
-        <circle cx="300" cy="200" r="170"></circle>
-        <circle cx="300" cy="200" r="180"></circle>
-        <circle cx="300" cy="200" r="190"></circle>
+        <circle cx="200" cy="200" r="10"></circle>
+        <circle cx="200" cy="200" r="20"></circle>
+        <circle cx="200" cy="200" r="30"></circle>
+        <circle cx="200" cy="200" r="40"></circle>
+        <circle cx="200" cy="200" r="50"></circle>
+        <circle cx="200" cy="200" r="60"></circle>
+        <circle cx="200" cy="200" r="70"></circle>
+        <circle cx="200" cy="200" r="80"></circle>
+        <circle cx="200" cy="200" r="90"></circle>
+        <circle cx="200" cy="200" r="100"></circle>
+        <circle cx="200" cy="200" r="110"></circle>
+        <circle cx="200" cy="200" r="120"></circle>
+        <circle cx="200" cy="200" r="130"></circle>
+        <circle cx="200" cy="200" r="140"></circle>
+        <circle cx="200" cy="200" r="150"></circle>
+        <circle cx="200" cy="200" r="160"></circle>
+        <circle cx="200" cy="200" r="170"></circle>
+        <circle cx="200" cy="200" r="180"></circle>
+        <circle cx="200" cy="200" r="190"></circle>
     </g>
     <g class="circle2">
-        <circle cx="300" cy="200" r="10"></circle>
-        <circle cx="300" cy="200" r="20"></circle>
-        <circle cx="300" cy="200" r="30"></circle>
-        <circle cx="300" cy="200" r="40"></circle>
-        <circle cx="300" cy="200" r="50"></circle>
-        <circle cx="300" cy="200" r="60"></circle>
-        <circle cx="300" cy="200" r="70"></circle>
-        <circle cx="300" cy="200" r="80"></circle>
-        <circle cx="300" cy="200" r="90"></circle>
-        <circle cx="300" cy="200" r="100"></circle>
-        <circle cx="300" cy="200" r="110"></circle>
-        <circle cx="300" cy="200" r="120"></circle>
-        <circle cx="300" cy="200" r="130"></circle>
-        <circle cx="300" cy="200" r="140"></circle>
-        <circle cx="300" cy="200" r="150"></circle>
-        <circle cx="300" cy="200" r="160"></circle>
-        <circle cx="300" cy="200" r="170"></circle>
-        <circle cx="300" cy="200" r="180"></circle>
-        <circle cx="300" cy="200" r="190"></circle>
+        <circle cx="200" cy="200" r="10"></circle>
+        <circle cx="200" cy="200" r="20"></circle>
+        <circle cx="200" cy="200" r="30"></circle>
+        <circle cx="200" cy="200" r="40"></circle>
+        <circle cx="200" cy="200" r="50"></circle>
+        <circle cx="200" cy="200" r="60"></circle>
+        <circle cx="200" cy="200" r="70"></circle>
+        <circle cx="200" cy="200" r="80"></circle>
+        <circle cx="200" cy="200" r="90"></circle>
+        <circle cx="200" cy="200" r="100"></circle>
+        <circle cx="200" cy="200" r="110"></circle>
+        <circle cx="200" cy="200" r="120"></circle>
+        <circle cx="200" cy="200" r="130"></circle>
+        <circle cx="200" cy="200" r="140"></circle>
+        <circle cx="200" cy="200" r="150"></circle>
+        <circle cx="200" cy="200" r="160"></circle>
+        <circle cx="200" cy="200" r="170"></circle>
+        <circle cx="200" cy="200" r="180"></circle>
+        <circle cx="200" cy="200" r="190"></circle>
     </g>
     <style>
         .circle1 {
@@ -53,19 +53,19 @@
         }
         @keyframes translateCircle {
             0% {
-                transform: translate(0em, 0em);
+                transform: translate(0, 0);
             }
             25% {
-                transform: translate(4em, 0em);
+                transform: translate(60px, 0);
             }
             50% {
-                transform: translate(0em, 0em);
+                transform: translate(0, 0);
             }
             75% {
-                transform: translate(-4em, 0em);
+                transform: translate(-60px, 0);
             }
             100% {
-                transform: translate(0em, 0em);
+                transform: translate(0, 0);
             }
         }
     </style>
