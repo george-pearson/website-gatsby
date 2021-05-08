@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 
 export default () => {
   return (
-    <section className={style.intro}>
+    <section>
       <LogoBrackets className={style.logoBrackets} />
       <p className={style.introText}>
         This is a blog about software development, science, and other musings

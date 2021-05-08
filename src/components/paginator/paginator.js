@@ -16,7 +16,7 @@ export default ({ currentPage, numPages }) => {
     <nav className={style.paginator}>
       <ul className={style.paginatorList}>
         {!isFirst && (
-          <li className={style.paginatorListItem}>
+          <li>
             <Link aria-label="previous page" className={style.paginatorLink} to={prevPage}>
               <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
             </Link>
@@ -37,7 +37,7 @@ export default ({ currentPage, numPages }) => {
           </li>
         ))}
         {!isLast && (
-          <li className={style.paginatorListItem}>
+          <li>
             <Link aria-label="next page" className={style.paginatorLink} to={`/${nextPage}`}>
               <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
             </Link>

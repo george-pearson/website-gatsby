@@ -47,7 +47,7 @@ export default ({ page, post, children }) => {
       </ThemeToggler>
       {sidebarOpen && <Backdrop backdropClickHandler={backdropClickHandler} />}
       <div className={style.fixedFooterWrapper}>
-        <main className={style.main}>{children}</main>
+        <main>{children}</main>
         <Footer />
       </div>
     </div>
