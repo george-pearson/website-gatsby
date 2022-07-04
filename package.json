@@ -9,7 +9,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
-    "deploy": "gatsby build && gh-pages -d public"
+    "deploy": "gatsby build && gh-pages -t --dotfiles -d public "
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
