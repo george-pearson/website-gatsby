@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef } from "react";
 import CirclesExampleSvg from "../../../../static/circlesExample.inline.svg";
 import * as style from "./style.module.css";
 
-export default () => {
+const CirclesExample = () => {
   const groups = useRef();
   useLayoutEffect(() => {
     const svg = document.querySelector(`.${style.circlesExample}`);
@@ -25,3 +25,5 @@ export default () => {
     </div>
   );
 };
+
+export default CirclesExample;

@@ -3,7 +3,7 @@ import ReactDOMServer from "react-dom/server";
 import * as style from "./style.module.css";
 import UKAndIrelandSmall from "../../../../static/UKAndIrelandSmall.png";
 
-export default () => {
+const CirclesMapTool = () => {
   const n = 800; // n is the maximum number of circles
   const canvas = useRef();
   const image = useRef();
@@ -232,3 +232,5 @@ function overlapWith(cx1, cy1, r1, cx2, cy2, r2) {
   const d = Math.sqrt((cx1 - cx2) * (cx1 - cx2) + (cy1 - cy2) * (cy1 - cy2));
   return d < r1 + r2;
 }
+
+export default CirclesMapTool;

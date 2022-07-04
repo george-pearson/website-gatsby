@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef } from "react";
 import LinesExampleSvg from "../../../../static/linesExample.inline.svg";
 import * as style from "./style.module.css";
 
-export default () => {
+const LinesExample = () => {
   const groups = useRef();
   useLayoutEffect(() => {
     const svg = document.querySelector(`.${style.linesExample}`);
@@ -22,3 +22,5 @@ export default () => {
     </div>
   );
 };
+
+export default LinesExample;

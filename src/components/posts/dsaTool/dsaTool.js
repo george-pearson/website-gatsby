@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import cloudImage from "../../../../static/cloudImage.jpg";
 import * as style from "./style.module.css";
 
-export default () => {
+const DSATool = () => {
   const canvas = useRef();
   const [color1, setColor1] = useState("#3c69ff");
   const [color2, setColor2] = useState("#ffffff");
@@ -186,3 +186,5 @@ function hexToRgb(hex) {
       }
     : null;
 }
+
+export default DSATool;

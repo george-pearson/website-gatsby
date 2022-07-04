@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import ColourThemeToggler from "../colourThemeToggler/colourThemeToggler";
 
-export default ({ navButtonClickHandler, show, theme, toggleTheme}) => {
+const Header = ({ navButtonClickHandler, show, theme, toggleTheme}) => {
   const headerClass = show ? style.header : style.headerClosed;
   return (
     <header className={headerClass}>
@@ -39,3 +39,5 @@ export default ({ navButtonClickHandler, show, theme, toggleTheme}) => {
     </header>
   );
 };
+
+export default Header;

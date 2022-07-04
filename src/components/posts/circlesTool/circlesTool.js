@@ -10,7 +10,7 @@ const n = 1000; // n is the maximum number of circles to pack inside the large c
 const rho_min = 0.01; // rho_min is rmin/R, where rmin is the minimum packing circle radius.
 const rho_max = 0.05; // rho_max is rmax/R, where rmax is the maximum packing circle radius.
 
-export default () => {
+const CirclesTool = () => {
   const canvas = useRef();
   const [colour1, setColour1] = useState("#993300");
   const [colour2, setColour2] = useState("#a5c916");
@@ -179,3 +179,5 @@ function overlapWith(cx1, cy1, r1, cx2, cy2, r2) {
   const d = Math.sqrt((cx1 - cx2) * (cx1 - cx2) + (cy1 - cy2) * (cy1 - cy2));
   return d < r1 + r2;
 }
+
+export default CirclesTool;

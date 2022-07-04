@@ -7,7 +7,7 @@ import Backdrop from "../backdrop/backdrop";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import * as style from "./style.module.css";
 
-export default ({ page, post, children }) => {
+const Layout = ({ page, post, children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -53,3 +53,5 @@ export default ({ page, post, children }) => {
     </div>
   );
 };
+
+export default Layout;

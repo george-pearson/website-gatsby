@@ -4,7 +4,7 @@ import Logo from "../../../static/logo.inline.svg";
 import { Link } from "gatsby";
 import ColourThemeToggler from "../colourThemeToggler/colourThemeToggler";
 
-export default ({ show, theme, toggleTheme}) => {
+const SideBar = ({ show, theme, toggleTheme}) => {
   return (
     <div className={show ? style.sidebarOpen : style.sidebar}>
       <Logo className={style.logo} />
@@ -25,3 +25,5 @@ export default ({ show, theme, toggleTheme}) => {
     </div>
   );
 };
+
+export default SideBar;

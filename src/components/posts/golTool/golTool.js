@@ -93,9 +93,12 @@ export default class GOLTool extends React.Component {
   }
 
   gameLoop = () => {
-    this.arr = this.iterate(this.arr);
-    this.printToCanvas(this.arr, this.cellSize, this.canvas.current);
-    this.requestId = requestAnimationFrame(this.gameLoop);
+    if (this.canvas.current !== null)
+    {
+      this.arr = this.iterate(this.arr);
+      this.printToCanvas(this.arr, this.cellSize, this.canvas.current);
+      this.requestId = requestAnimationFrame(this.gameLoop);
+    }
   };
 
   iterate(oldArray) {

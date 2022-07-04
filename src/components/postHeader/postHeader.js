@@ -1,7 +1,7 @@
 import React from "react";
 import * as style from "./style.module.css";
 
-export default ({ post }) => {
+const PostHeader = ({ post }) => {
   return (
     <div className={style.postHeader}>
       <h1 className={style.postTitle}>{post.frontmatter.title}</h1>
@@ -9,3 +9,5 @@ export default ({ post }) => {
     </div>
   );
 };
+
+export default PostHeader;

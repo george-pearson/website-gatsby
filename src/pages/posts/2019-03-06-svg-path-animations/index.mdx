@@ -94,7 +94,7 @@ To do multi-path animations we can reproduce what we did for single line animati
 <CupcakeDrawself />
 
 ```javascript
-var cupcake = document.querySelector(".cupcake-drawself");
+var cupcake = document.querySelector("#cupcakeDrawSelf");
 var cupcakePaths = Array.from(cupcake.querySelectorAll("path"));
 var cupcakeAnimations = cupcakePaths.map(function(path) {
   var pathLength = path.getTotalLength();
@@ -131,7 +131,7 @@ Finally if you want to make things really snazzy you can add fade effects by var
 <CupcakeDrawselfFade />
 
 ```javascript
-var cupcakeFade = document.querySelector(".cupcake-drawself-fade");
+var cupcakeFade = document.querySelector("#cupcakeDrawselfFade");
 var cupcakeLines = Array.from(cupcakeFade.querySelectorAll(".line"));
 var cupcakeShades = Array.from(cupcakeFade.querySelectorAll(".shade"));
 var cupcakeFadePaths = [...cupcakeLines, ...cupcakeShades]; // Run shades last.

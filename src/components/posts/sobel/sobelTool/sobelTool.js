@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import * as style from "./style.module.css";
 import { sobel } from "../sobel.js";
 
-export default () => {
+const SobelTool = () => {
   const canvas = useRef();
   const fileInput = useRef();
   const image = useRef();
@@ -85,3 +85,5 @@ export default () => {
     </div>
   );
 };
+
+export default SobelTool;

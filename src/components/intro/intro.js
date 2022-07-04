@@ -3,7 +3,7 @@ import * as style from "./style.module.css";
 import LogoBrackets from "../../../static/logoBrackets.inline.svg";
 import { Link } from "gatsby";
 
-export default () => {
+const Intro = () => {
   return (
     <section>
       <LogoBrackets className={style.logoBrackets} />
@@ -14,3 +14,5 @@ export default () => {
     </section>
   );
 };
+
+export default Intro;

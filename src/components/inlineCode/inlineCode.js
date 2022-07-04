@@ -1,7 +1,7 @@
 import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 
-export default ({ children }) => {
+const InlineCode = ({ children }) => {
   return (
     <Highlight {...defaultProps} code={children} language="javascript">
       {({ className, style }) => (
@@ -12,3 +12,5 @@ export default ({ children }) => {
     </Highlight>
   );
 };
+
+export default InlineCode;

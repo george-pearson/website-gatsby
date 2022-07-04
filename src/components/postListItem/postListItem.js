@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import * as style from "./style.module.css";
 
-export default ({ post }) => {
+const PostListItem = ({ post }) => {
   const postImage = post.frontmatter.image;
   return (
     <div className={style.postListItem}>
@@ -21,3 +21,5 @@ export default ({ post }) => {
     </div>
   );
 };
+
+export default PostListItem;

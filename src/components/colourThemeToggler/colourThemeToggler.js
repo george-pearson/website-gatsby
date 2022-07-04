@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
-export default ({theme, toggleTheme}) => {
+const ColourThemeToggler = ({theme, toggleTheme}) => {
   return (
     <button
       onClick={e => toggleTheme(theme === 'light' ? 'dark' : 'light')}
@@ -11,4 +11,6 @@ export default ({theme, toggleTheme}) => {
     { theme === 'dark' && <FontAwesomeIcon icon={faSun} size="1x"/> }
     </button>
   );
-}
+};
+
+export default ColourThemeToggler;

@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef } from "react";
 import Logo from "../../../../static/logo.inline.svg";
 import * as style from "./style.module.css";
 
-export default () => {
+const LogoDrawself = () => {
   const animations = useRef();
   useLayoutEffect(() => {
     animations.current = createAnimations();
@@ -51,3 +51,5 @@ function runAnimations(animations) {
     begin += animation.duration + 0.1;
   });
 }
+
+export default LogoDrawself;

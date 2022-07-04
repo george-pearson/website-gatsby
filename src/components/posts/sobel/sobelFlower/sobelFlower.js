@@ -3,7 +3,7 @@ import flower from "../../../../../static/flower.png";
 import * as style from "./style.module.css";
 import { sobel, greyscale } from "../sobel.js";
 
-export default ({ transformType }) => {
+const SobelFlower = ({ transformType }) => {
   const canvas = useRef();
   const image = useRef();
 
@@ -65,3 +65,5 @@ export default ({ transformType }) => {
     </div>
   );
 };
+
+export default SobelFlower;

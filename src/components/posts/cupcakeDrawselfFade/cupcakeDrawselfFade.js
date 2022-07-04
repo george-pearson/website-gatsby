@@ -2,13 +2,14 @@ import React, { useLayoutEffect, useRef } from "react";
 import Cupcake from "../../../../static/cupcake.inline.svg";
 import * as style from "./style.module.css";
 
-export default () => {
+const CupcakeDrawselfFade = () => {
   const animations = useRef();
   useLayoutEffect(() => {
     animations.current = createAnimations();
   });
   return (
     <Cupcake
+      id="cupcakeDrawselfFade"
       className={style.cupcakeDrawselfFade}
       onClick={() => runAnimations(animations.current)}
     />
@@ -16,7 +17,7 @@ export default () => {
 };
 
 function createAnimations() {
-  const svg = document.querySelector(`.${style.cupcakeDrawselfFade}`);
+  const svg = document.querySelector(`#cupcakeDrawselfFade`);
   const lines = Array.from(svg.querySelectorAll(".line"));
   const shades = Array.from(svg.querySelectorAll(".shade"));
   var paths = [...lines, ...shades];
@@ -49,3 +50,5 @@ function runAnimations(animations) {
     begin += animation.duration + 0.1; // Slight 0.1s delay for drawing effect
   });
 }
+
+export default CupcakeDrawselfFade;

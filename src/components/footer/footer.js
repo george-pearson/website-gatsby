@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import * as style from "./style.module.css";
 
-export default () => {
+const Footer = () => {
   const { twitterUsername } = useSiteMetadata();
   return (
     <footer className={style.footer}>
@@ -63,3 +63,5 @@ export default () => {
     </footer>
   );
 };
+
+export default Footer;

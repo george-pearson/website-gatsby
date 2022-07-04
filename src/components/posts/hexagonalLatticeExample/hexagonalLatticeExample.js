@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef } from "react";
 import HexagonalLatticeExampleSvg from "../../../../static/hexagonalLatticeExample.inline.svg";
 import * as style from "./style.module.css";
 
-export default () => {
+const HexagonalLatticeExample = () => {
   const groups = useRef();
   useLayoutEffect(() => {
     const svg = document.querySelector(`.${style.hexagonalLatticeExample}`);
@@ -25,3 +25,5 @@ export default () => {
     </div>
   );
 };
+
+export default HexagonalLatticeExample;

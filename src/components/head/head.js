@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import { useSiteMetadata } from "../../hooks/useSiteMetadata";
 import logoImage from "../../../static/logo.png";
 
-export default ({ page, post }) => {
+const Head = ({ page, post }) => {
   const {
     author,
     siteDescription,
@@ -51,3 +51,5 @@ export default ({ page, post }) => {
     </Helmet>
   );
 };
+
+export default Head;
