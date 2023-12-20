@@ -3,7 +3,7 @@ import { useSiteMetadata } from "../../hooks/useSiteMetadata";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
-  faTwitter,
+  faXTwitter,
   faLinkedinIn,
   faGithubAlt,
 } from "@fortawesome/free-brands-svg-icons";
@@ -42,7 +42,7 @@ const Footer = () => {
           href={`https://twitter.com/${twitterUsername}`}
         >
           <FontAwesomeIcon
-            icon={faTwitter}
+            icon={faXTwitter}
             className={style.socialIcon}
             size="3x"
           />
