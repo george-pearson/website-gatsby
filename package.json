@@ -9,7 +9,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
-    "deploy": "gatsby build && gh-pages -t --dotfiles -d public "
+    "deploy": "gatsby build && gh-pages -t --dotfiles -d public"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
@@ -32,8 +32,8 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0",
-    "prettier": "^2.8.8"
+    "gh-pages": "^6.1.1",
+    "prettier": "^3.1.1"
   },
   "repository": {
     "type": "git",
