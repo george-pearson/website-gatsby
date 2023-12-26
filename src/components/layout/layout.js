@@ -4,7 +4,7 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import Sidebar from "../sidebar/sidebar";
 import Backdrop from "../backdrop/backdrop";
-import { ThemeToggler } from "gatsby-plugin-dark-mode";
+import ThemeToggler from "../themetoggler/themetoggler"
 import * as style from "./style.module.css";
 
 const Layout = ({ page, post, children }) => {

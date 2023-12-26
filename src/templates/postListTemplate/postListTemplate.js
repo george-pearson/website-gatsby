@@ -24,11 +24,7 @@ export default class PostListTemplate extends React.Component {
 
 export const pageQuery = graphql`
   query postListQuery($skip: Int!, $limit: Int!) {
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
+    allMdx(sort: {frontmatter: {date: DESC}}, limit: $limit, skip: $skip) {
       edges {
         node {
           id

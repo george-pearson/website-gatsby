@@ -36,8 +36,15 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        mdxOptions: {
+          remarkPlugins: [],
+          rehypePlugins: [],
+        },
+      },
+    },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-dark-mode`,
   ],
 };

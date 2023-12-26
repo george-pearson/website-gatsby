@@ -12,23 +12,23 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(
     `
-      {
-        allMdx(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
+    {
+      allMdx(sort: {frontmatter: {date: DESC}}, limit: 1000) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+            internal {
+              contentFilePath
             }
           }
         }
       }
+    }
     `
   );
 
@@ -45,7 +45,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: post.node.fields.slug,
-      component: postTemplate,
+      component: `${postTemplate}?__contentFilePath=${post.node.internal.contentFilePath}`,
       context: {
         slug: post.node.fields.slug,
         previous,
