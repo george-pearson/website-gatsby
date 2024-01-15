@@ -5,22 +5,19 @@ import Paginator from "../../components/paginator/paginator";
 import PostListItem from "../../components/postListItem/postListItem";
 import { graphql } from "gatsby";
 
-export default class PostListTemplate extends React.Component {
-  render() {
-    const { data } = this.props;
-    const posts = data.allMdx.edges.map(edge => edge.node);
-    const { currentPage, numPages } = this.props.pageContext;
-    return (
-      <Layout page="Home">
-        <Intro />
-        {posts.map(post => (
-          <PostListItem key={post.id} post={post} />
-        ))}
-        <Paginator currentPage={currentPage} numPages={numPages} />
-      </Layout>
-    );
-  }
-}
+const PostListTemplate = ({ data, pageContext}) => {
+  const posts = data.allMdx.edges.map(edge => edge.node);
+  const { currentPage, numPages } = pageContext;
+  return (
+    <Layout page="Home">
+      <Intro />
+      {posts.map(post => (
+        <PostListItem key={post.id} post={post} />
+      ))}
+      <Paginator currentPage={currentPage} numPages={numPages} />
+    </Layout>
+  );
+};
 
 export const pageQuery = graphql`
   query postListQuery($skip: Int!, $limit: Int!) {
@@ -42,3 +39,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default PostListTemplate;

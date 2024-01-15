@@ -7,7 +7,7 @@ import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import * as style from "./style.module.css";
 
-function PostTemplate({ data: { mdx }, children }) {
+const PostTemplate = ({ data: { mdx }, children }) => {
   const components = {
     code: CodeBlock,
     inlineCode: InlineCode,
@@ -25,7 +25,7 @@ function PostTemplate({ data: { mdx }, children }) {
       </div>
     </Layout>
   );
-}
+};
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {

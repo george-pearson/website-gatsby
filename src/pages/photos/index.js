@@ -14,96 +14,96 @@ import Castle from "../../../static/photos/Castle.jpg";
 import Door from "../../../static/photos/Door.jpg";
 import Forest from "../../../static/photos/Forest.jpg";
 
-export default class Photos extends React.Component {
-  render() {
-    return (
-      <Layout page="Photos">
-        <div>
-          <h2 className={style.photosTitle}>Photos</h2>
-          <div className={style.gallery}>
-            <div>
-              <a href={CommonBlue}>
-                <img
-                  className={style.galleryImage}
-                  src={CommonBlue}
-                  alt="CommonBlue"
-                />
-              </a>
-            </div>
-            <div>
-              <a href={Alps}>
-                <img className={style.galleryImage} src={Alps} alt="Alps" />
-              </a>
-            </div>
-            <div>
-              <a href={Harvest}>
-                <img
-                  className={style.galleryImage}
-                  src={Harvest}
-                  alt="Harvest"
-                />
-              </a>
-            </div>
-            <div>
-              <a href={GreatWillowHerb}>
-                <img
-                  className={style.galleryImage}
-                  src={GreatWillowHerb}
-                  alt="GreatWillowHerb"
-                />
-              </a>
-            </div>
-            <div>
-              <a href={Sunset}>
-                <img className={style.galleryImage} src={Sunset} alt="Sunset" />
-              </a>
-            </div>
-            <div>
-              <a href={Rockpools}>
-                <img
-                  className={style.galleryImage}
-                  src={Rockpools}
-                  alt="Rockpools"
-                />
-              </a>
-            </div>
-            <div>
-              <a href={Peninsula}>
-                <img
-                  className={style.galleryImage}
-                  src={Peninsula}
-                  alt="Peninsula"
-                />
-              </a>
-            </div>
-            <div>
-              <a href={Beach}>
-                <img className={style.galleryImage} src={Beach} alt="Beach" />
-              </a>
-            </div>
-            <div>
-              <a href={Alpine}>
-                <img className={style.galleryImage} src={Alpine} alt="Alpine" />
-              </a>
-            </div>
-            <div>
-              <a href={Castle}>
-                <img className={style.galleryImage} src={Castle} alt="Castle" />
-              </a>
-            </div>
-            <div>
-              <a href={Door}>
-                <img className={style.galleryImage} src={Door} alt="Door" />
-              </a>
-            </div>
-            <div>
-              <a href={Forest}>
-                <img className={style.galleryImage} src={Forest} alt="Forest" />
-              </a>
-            </div>
+const Photos = () => {
+  return (
+    <Layout page="Photos">
+      <div>
+        <h2 className={style.photosTitle}>Photos</h2>
+        <div className={style.gallery}>
+          <div>
+            <a href={CommonBlue}>
+              <img
+                className={style.galleryImage}
+                src={CommonBlue}
+                alt="CommonBlue"
+              />
+            </a>
+          </div>
+          <div>
+            <a href={Alps}>
+              <img className={style.galleryImage} src={Alps} alt="Alps" />
+            </a>
+          </div>
+          <div>
+            <a href={Harvest}>
+              <img
+                className={style.galleryImage}
+                src={Harvest}
+                alt="Harvest"
+              />
+            </a>
+          </div>
+          <div>
+            <a href={GreatWillowHerb}>
+              <img
+                className={style.galleryImage}
+                src={GreatWillowHerb}
+                alt="GreatWillowHerb"
+              />
+            </a>
+          </div>
+          <div>
+            <a href={Sunset}>
+              <img className={style.galleryImage} src={Sunset} alt="Sunset" />
+            </a>
+          </div>
+          <div>
+            <a href={Rockpools}>
+              <img
+                className={style.galleryImage}
+                src={Rockpools}
+                alt="Rockpools"
+              />
+            </a>
+          </div>
+          <div>
+            <a href={Peninsula}>
+              <img
+                className={style.galleryImage}
+                src={Peninsula}
+                alt="Peninsula"
+              />
+            </a>
+          </div>
+          <div>
+            <a href={Beach}>
+              <img className={style.galleryImage} src={Beach} alt="Beach" />
+            </a>
+          </div>
+          <div>
+            <a href={Alpine}>
+              <img className={style.galleryImage} src={Alpine} alt="Alpine" />
+            </a>
+          </div>
+          <div>
+            <a href={Castle}>
+              <img className={style.galleryImage} src={Castle} alt="Castle" />
+            </a>
+          </div>
+          <div>
+            <a href={Door}>
+              <img className={style.galleryImage} src={Door} alt="Door" />
+            </a>
+          </div>
+          <div>
+            <a href={Forest}>
+              <img className={style.galleryImage} src={Forest} alt="Forest" />
+            </a>
           </div>
         </div>
-      </Layout>
-    );
-  }
-}
+      </div>
+    </Layout>
+  );
+};
+
+export default Photos;
