@@ -1,4 +1,5 @@
 import React from "react";
+import Seo from "../../components/seo/seo";
 import Layout from "../../components/layout/layout";
 import PostHeader from "../../components/postHeader/postHeader";
 import CodeBlock from "../../components/codeBlock/codeBlock";
@@ -14,7 +15,7 @@ const PostTemplate = ({ data: { mdx }, children }) => {
   };
   const post = mdx;
   return (
-    <Layout page="Post" post={post}>
+    <Layout>
       <div className={style.postContainer}>
         <div className={style.post}>
           <PostHeader post={post} />
@@ -24,6 +25,13 @@ const PostTemplate = ({ data: { mdx }, children }) => {
         </div>
       </div>
     </Layout>
+  );
+};
+
+export const Head = ({ data: { mdx }}) => {
+  const post = mdx;
+  return (
+    <Seo page="Post" post={post} />
   );
 };
 

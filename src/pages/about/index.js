@@ -1,11 +1,12 @@
 import React from "react";
+import Seo from "../../components/seo/seo";
 import Layout from "../../components/layout/layout";
 import Profile from "../../../static/profile.png";
 import * as style from "./style.module.css";
 
 const About = () => {
   return (
-    <Layout page="About">
+    <Layout>
       <div className={style.about}>
         <img className={style.profile} src={Profile} alt="Me" />
         <p className={style.aboutText}>
@@ -19,5 +20,7 @@ const About = () => {
     </Layout>
   );
 };
+
+export const Head = () => <Seo page="About" />;
 
 export default About;

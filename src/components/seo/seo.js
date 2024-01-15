@@ -1,9 +1,8 @@
 import React from "react";
-import Helmet from "react-helmet";
 import { useSiteMetadata } from "../../hooks/useSiteMetadata";
 import logoImage from "../../../static/logo.png";
 
-const Head = ({ page, post }) => {
+const Seo = ({ page, post }) => {
   const {
     author,
     siteDescription,
@@ -18,7 +17,7 @@ const Head = ({ page, post }) => {
   const url = 
     post && post.fields.slug ? `${siteUrl}${post.fields.slug}` : siteUrl;
   return (
-    <Helmet>
+    <>
       <html lang="en" />
       <title>{title}</title>
       <meta name="description" content={description} />
@@ -48,8 +47,8 @@ const Head = ({ page, post }) => {
         `}
         </script>
       )}
-    </Helmet>
+    </>
   );
 };
 
-export default Head;
+export default Seo;

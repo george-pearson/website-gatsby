@@ -1,4 +1,5 @@
 import React from "react";
+import Seo from "../../components/seo/seo";
 import Layout from "../../components/layout/layout";
 import Intro from "../../components/intro/intro";
 import Paginator from "../../components/paginator/paginator";
@@ -9,7 +10,7 @@ const PostListTemplate = ({ data, pageContext}) => {
   const posts = data.allMdx.edges.map(edge => edge.node);
   const { currentPage, numPages } = pageContext;
   return (
-    <Layout page="Home">
+    <Layout>
       <Intro />
       {posts.map(post => (
         <PostListItem key={post.id} post={post} />
@@ -18,6 +19,8 @@ const PostListTemplate = ({ data, pageContext}) => {
     </Layout>
   );
 };
+
+export const Head = () => <Seo page="Home" />;
 
 export const pageQuery = graphql`
   query postListQuery($skip: Int!, $limit: Int!) {

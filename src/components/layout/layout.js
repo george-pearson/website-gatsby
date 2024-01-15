@@ -1,5 +1,4 @@
 import React, { useState, useLayoutEffect } from "react";
-import Head from "../head/head";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import Sidebar from "../sidebar/sidebar";
@@ -7,7 +6,7 @@ import Backdrop from "../backdrop/backdrop";
 import ThemeToggler from "../themetoggler/themetoggler"
 import * as style from "./style.module.css";
 
-const Layout = ({ page, post, children }) => {
+const Layout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -36,7 +35,6 @@ const Layout = ({ page, post, children }) => {
 
   return (
     <div>
-      <Head page={page} post={post} />
       <ThemeToggler>
         {({ theme, toggleTheme }) => (
         <div>

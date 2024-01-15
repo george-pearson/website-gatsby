@@ -1,4 +1,5 @@
 import React from "react";
+import Seo from "../../components/seo/seo";
 import Layout from "../../components/layout/layout";
 import * as style from "./style.module.css";
 import CommonBlue from "../../../static/photos/CommonBlue.jpg";
@@ -16,7 +17,7 @@ import Forest from "../../../static/photos/Forest.jpg";
 
 const Photos = () => {
   return (
-    <Layout page="Photos">
+    <Layout>
       <div>
         <h2 className={style.photosTitle}>Photos</h2>
         <div className={style.gallery}>
@@ -105,5 +106,7 @@ const Photos = () => {
     </Layout>
   );
 };
+
+export const Head = () => <Seo page="Photos" />;
 
 export default Photos;
