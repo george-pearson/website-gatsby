@@ -25,8 +25,8 @@ const Header = ({ navButtonClickHandler, show, theme, toggleTheme}) => {
           <Link to="/" className={style.navBarItem}>
             Home
           </Link>
-          <Link to="/about" className={style.navBarItem}>
-            About
+          <Link to="/blog" className={style.navBarItem}>
+            Blog
           </Link>
           <Link to="/photos" className={style.navBarItem}>
             Photos

@@ -1,15 +1,15 @@
 import React from "react";
-import Seo from "../../components/seo/seo";
-import Layout from "../../components/layout/layout";
-import Profile from "../../../static/profile.png";
+import Seo from "../components/seo/seo";
+import Layout from "../components/layout/layout";
+import Profile from "../../static/profile.png";
 import * as style from "./style.module.css";
 
-const About = () => {
+const Home = () => {
   return (
     <Layout>
-      <div className={style.about}>
+      <div className={style.home}>
         <img className={style.profile} src={Profile} alt="Me" />
-        <p className={style.aboutText}>
+        <p className={style.homeText}>
           Hi I'm George. I’m a Software Engineer working in the UK. I
           graduated from the University of Oxford in Chemistry in 2016, but
           quickly switched from science to software after that. I mostly use
@@ -21,6 +21,6 @@ const About = () => {
   );
 };
 
-export const Head = () => <Seo page="About" />;
+export const Head = () => <Seo page="Home" />;
 
-export default About;
+export default Home;

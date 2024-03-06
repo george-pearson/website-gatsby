@@ -9,7 +9,7 @@ const Intro = () => {
       <LogoBrackets className={style.logoBrackets} />
       <p className={style.introText}>
         This is a blog about software development, science, and other musings
-        by <Link className="blueLink" to="/about">George Pearson</Link>.
+        by <Link className="blueLink" to="/">George Pearson</Link>.
       </p>
     </section>
   );

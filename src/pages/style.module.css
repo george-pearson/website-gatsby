@@ -1,4 +1,4 @@
-.about {
+.home {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@
     border: 2px solid var(--color-tertiary);
 }
 
-.aboutText {
+.homeText {
     padding: 1em;
     max-width: 24em;
 }

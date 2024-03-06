@@ -20,7 +20,7 @@ const PostListTemplate = ({ data, pageContext}) => {
   );
 };
 
-export const Head = () => <Seo page="Home" />;
+export const Head = () => <Seo page="Blog" />;
 
 export const pageQuery = graphql`
   query postListQuery($skip: Int!, $limit: Int!) {

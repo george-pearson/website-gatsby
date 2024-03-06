@@ -12,8 +12,8 @@ const SideBar = ({ show, theme, toggleTheme}) => {
         <Link to="/" className={style.sidebarNavItem}>
           Home
         </Link>
-        <Link to="/about" className={style.sidebarNavItem}>
-          About
+        <Link to="/blog" className={style.sidebarNavItem}>
+          Blog
         </Link>
         <Link to="/photos" className={style.sidebarNavItem}>
           Photos

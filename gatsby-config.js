@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     author: `George Pearson`,
-    siteDescription: `A blog about software development, science, and other musings by George Pearson.`,
+    siteDescription: `A personal website and blog about software development, science, and other musings by George Pearson.`,
     siteUrl: `https://georgepearson.co.uk`,
     twitterUsername: `@georgepearson_`,
   },
@@ -11,7 +11,7 @@ module.exports = {
       options: {
         name: `George Pearson's Blog`,
         short_name: `George's Blog`,
-        description: `A blog about software development, science, and other musings by George Pearson.`,
+        description: `A personal website and blog about software development, science, and other musings by George Pearson.`,
         lang: `en`,
         start_url: `/`,
         background_color: `#ebebe0`,

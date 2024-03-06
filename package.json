@@ -1,7 +1,7 @@
 {
-  "name": "blog",
+  "name": "website",
   "version": "1.0.0",
-  "description": "A blog about software development, science, and other musings by George Pearson.",
+  "description": "A personal website and blog about software development, science, and other musings by George Pearson.",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",

@@ -10,7 +10,7 @@ import {
 const Paginator = ({ currentPage, numPages }) => {
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
-  const prevPage = currentPage - 1 === 1 ? "/" : (currentPage - 1).toString();
+  const prevPage = currentPage - 1 === 1 ? "/blog" : (currentPage - 1).toString();
   const nextPage = (currentPage + 1).toString();
   return (
     <nav className={style.paginator}>
@@ -30,7 +30,7 @@ const Paginator = ({ currentPage, numPages }) => {
                   ? style.paginatorLinkActive
                   : style.paginatorLink
               }
-              to={`/${i === 0 ? "" : i + 1}`}
+              to={`/blog/${i === 0 ? "" : i + 1}`}
             >
               {i + 1}
             </Link>
@@ -38,7 +38,7 @@ const Paginator = ({ currentPage, numPages }) => {
         ))}
         {!isLast && (
           <li>
-            <Link aria-label="next page" className={style.paginatorLink} to={`/${nextPage}`}>
+            <Link aria-label="next page" className={style.paginatorLink} to={nextPage}>
               <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
             </Link>
           </li>
